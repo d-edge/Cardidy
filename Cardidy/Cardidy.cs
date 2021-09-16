@@ -1,6 +1,4 @@
-﻿using System.Collections.Immutable;
-using System.Diagnostics;
-using Dedge.Model;
+﻿using Dedge.Model;
 
 namespace Dedge;
 
@@ -68,7 +66,8 @@ public static class Cardidy
         var firstSixDigits = digits.Take(6).ToNumber().PadRight(6, 0);
         return knownCards
             .Where(knownCard => knownCard.Prefixes
-                .Any(p => {
+                .Any(p =>
+                {
                     var matched = IsMatching(p, firstSixDigits, validateLength, knownCard.Lengths, digits.Count);
                     return matched && IsChecked(useValidation, knownCard.Algorithm, validateLength && !ignoreNoise && !handleAnonymization, digits);
                 })
@@ -96,15 +95,11 @@ public static class Cardidy
     /// </remarks>
     /// <param name="digits">The card digits to check</param>
     /// <returns>true/false depending on valid checkdigit</returns>
-    private static bool CheckLuhn(IEnumerable<int> digits)
-    {
-        Debug.WriteLine("luhn");
-        return digits
+    private static bool CheckLuhn(IEnumerable<int> digits) => digits
         .Reverse()
         .Sumi((thisNum, i) => i % 2 == 0
             ? thisNum
             : ((thisNum *= 2) > 9 ? thisNum - 9 : thisNum)) % 10 == 0;
-    }
 
     /// <summary>
     /// Pass card cvv and it will return its likely valitidy.
