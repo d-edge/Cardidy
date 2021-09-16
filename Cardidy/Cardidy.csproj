@@ -53,10 +53,11 @@
 	  <Compile Include="CardType.cs" />
 	  <Compile Include="Extensions.cs" />
 	  <Compile Include="Model\ACard.cs" />
-	  <Compile Include="Model\ASixteenCard.cs" />
+	  <Compile Include="Model\ALuhnCard.cs" />
 	  <Compile Include="Model\Cards.cs" />
 	  <Compile Include="Model\ICard.cs" />
 	  <Compile Include="Model\PaddedRange.cs" />
+	  <Compile Include="ValidationAlgorithm.cs" />
 	</ItemGroup>
 
 </Project>

@@ -23,4 +23,6 @@ internal static class Extensions
     }
 
     internal static int ToNumber(this IEnumerable<int> digits) => digits.Aggregate((digit, sum) => digit * 10 + sum);
+
+    internal static int Sumi(this IEnumerable<int> source, Func<int, int, int> f) => source.Select(f).Sum();
 }
