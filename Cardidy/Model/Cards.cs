@@ -28,7 +28,7 @@ internal record Visa : ACard
 
 internal record UnionPay : ASixteenCard
 {
-    public UnionPay() : base(CardType.VisaElectron, 31) { }
+    public UnionPay() : base(CardType.UnionPay, 31) { }
 }
 
 internal record Verve : ACard
