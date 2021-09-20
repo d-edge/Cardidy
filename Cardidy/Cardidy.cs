@@ -42,7 +42,7 @@ public static class Cardidy
     /// </remarks>
     /// <param name="number">The card number to identify</param>
     /// <param name="validateLength">Validate the length as part of the string identification. A false value can be useful to identify fragment of a card number. Default is true.</param>
-    /// <param name="useValidation">Validate the card number as part of the string identification. A false value can be useful to identify fragment of a card number. The validation will the issuing network's validation, mostly Luhn. Default is true.</param>
+    /// <param name="useAlgorithm">Validate the card number as part of the string identification. A false value can be useful to identify fragment of a card number. The validation will the issuing network's validation, mostly Luhn. Default is true.</param>
     /// <param name="ignoreNoise">Ignore common noise found in card number. This noise is any of `- .`. Default is false.</param>
     /// <param name="handleAnonymization">Set any non-digits to zero. It is common to use "X" and "#" to hide some digits. Default is false.</param>
     /// <example>
@@ -52,7 +52,7 @@ public static class Cardidy
     /// </code>
     /// </example>
     /// <returns>The issuing network identified.</returns>
-    public static IEnumerable<CardType> Identify(string number, bool validateLength = true, bool useValidation = true, bool ignoreNoise = false, bool handleAnonymization = false)
+    public static IEnumerable<CardType> Identify(string number, bool validateLength = true, bool useAlgorithm = true, bool ignoreNoise = false, bool handleAnonymization = false)
     {
         if (string.IsNullOrWhiteSpace(number))
             return Enumerable.Empty<CardType>();
@@ -64,13 +64,13 @@ public static class Cardidy
 
         var digits = numbers.Select(c => int.TryParse(c.ToString(), out var i) ? i : 0).ToList();
         var firstSixDigits = digits.Take(6).ToNumber().PadRight(6, 0);
+        var isStrict = validateLength && !ignoreNoise && !handleAnonymization;
         return knownCards
             .Where(knownCard => knownCard.Prefixes
-                .Any(p =>
-                {
-                    var matched = IsMatching(p, firstSixDigits, validateLength, knownCard.Lengths, digits.Count);
-                    return matched && IsChecked(useValidation, knownCard.Algorithm, validateLength && !ignoreNoise && !handleAnonymization, digits);
-                })
+                .Any(prefix => prefix.Contains(firstSixDigits)
+                    && (!validateLength || knownCard.Lengths.Contains(digits.Count))
+                    && (!useAlgorithm || isStrict && knownCard.Check(digits))
+                )
         ).Select(x => x.Name);
     }
 
@@ -79,27 +79,6 @@ public static class Cardidy
     private static IEnumerable<char> CleanNoise(string source) => source.Where(c => !"- .".Contains(c));
 
     private static bool StartsWithDigit(IEnumerable<char> source) => source is not null && char.IsDigit(source.FirstOrDefault());
-
-    private static bool IsMatching(PaddedRange prefix, int firstSixDigits, bool validateLength, IEnumerable<int> lengths, int digitsCount) =>
-        prefix.Contains(firstSixDigits)
-        && (!validateLength || lengths.Contains(digitsCount));
-
-    private static bool IsChecked(bool useValidation, ValidationAlgorithm validationAlgorithm, bool isStrict, IReadOnlyList<int> digits) =>
-        !useValidation || validationAlgorithm != ValidationAlgorithm.Luhn || (isStrict && CheckLuhn(digits));
-
-    /// <summary>Compact Luhn check</summary>
-    /// <remarks>
-    /// Inspired from <a href="https://stackoverflow.com/users/3395015/garryp">garryp</a>'s
-    /// <a href="https://stackoverflow.com/a/40491537/1248177">answer</a> published under CC BY-SA 3.0
-    /// on <a href="https://stackoverflow.com/q/21249670/1248177">implementing luhn algorithm using c#</a>.
-    /// </remarks>
-    /// <param name="digits">The card digits to check</param>
-    /// <returns>true/false depending on valid checkdigit</returns>
-    private static bool CheckLuhn(IEnumerable<int> digits) => digits
-        .Reverse()
-        .Sumi((thisNum, i) => i % 2 == 0
-            ? thisNum
-            : ((thisNum *= 2) > 9 ? thisNum - 9 : thisNum)) % 10 == 0;
 
     /// <summary>
     /// Pass card cvv and it will return its likely valitidy.

@@ -57,7 +57,6 @@
 	  <Compile Include="Model\Cards.cs" />
 	  <Compile Include="Model\ICard.cs" />
 	  <Compile Include="Model\PaddedRange.cs" />
-	  <Compile Include="ValidationAlgorithm.cs" />
 	</ItemGroup>
 
 </Project>

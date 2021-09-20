@@ -8,7 +8,7 @@ internal record AmericanExpress : ALuhnCard
 
 internal record Uatp : ACard
 {
-    public Uatp() : base(CardType.Uatp, ValidationAlgorithm.None, 1, Fifteen) { }
+    public Uatp() : base(CardType.Uatp, 1, Fifteen) { }
 }
 
 internal record Mir : ALuhnCard
@@ -33,7 +33,7 @@ internal record UnionPay : ALuhnCard
 
 internal record Verve : ACard
 {
-    public Verve() : base(CardType.Verve, ValidationAlgorithm.None, new[] { new PaddedRange(506099, 506198), new PaddedRange(650002, 650027) }, new[] { 16, 19 })
+    public Verve() : base(CardType.Verve, new[] { new PaddedRange(506099, 506198), new PaddedRange(650002, 650027) }, new[] { 16, 19 })
     { }
 }
 
