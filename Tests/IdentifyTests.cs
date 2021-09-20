@@ -24,7 +24,7 @@ public class IdentifyTests
     [TestCase("4917-773331987017", ExpectedResult = new[] { CardType.VisaElectron, CardType.Visa })]
     [TestCase("4026-320594033", ExpectedResult = new[] { CardType.Visa })]
     [TestCase("417500-3331917", ExpectedResult = new[] { CardType.Visa })]
-    public IEnumerable<CardType> ShouldIdentifyAsVisaElectron(string cardNumber) => Cardidy.Identify(cardNumber, useValidation: false, ignoreNoise: true);
+    public IEnumerable<CardType> ShouldIdentifyAsVisaElectron(string cardNumber) => Cardidy.Identify(cardNumber, useAlgorithm: false, ignoreNoise: true);
 
     [TestCase("5110710000901089", ExpectedResult = CardType.MasterCard)]
     [TestCase("5289675573349651", ExpectedResult = CardType.MasterCard)]
@@ -35,7 +35,7 @@ public class IdentifyTests
     [TestCase("2330-773331987017", ExpectedResult = CardType.MasterCard)]
     [TestCase("2631-775331987017", ExpectedResult = CardType.MasterCard)]
     [TestCase("2720-773331987017", ExpectedResult = CardType.MasterCard)]
-    public CardType ShouldIdentifyAsMasterCard(string cardNumber) => Cardidy.Identify(cardNumber, useValidation: false, ignoreNoise: true).First();
+    public CardType ShouldIdentifyAsMasterCard(string cardNumber) => Cardidy.Identify(cardNumber, useAlgorithm: false, ignoreNoise: true).First();
 
     [TestCase("5018-710000901089", ExpectedResult = CardType.Maestro)]
     [TestCase("5020-710000901089", ExpectedResult = CardType.Maestro)]
@@ -53,7 +53,7 @@ public class IdentifyTests
     [TestCase("5018-7100009012345", ExpectedResult = CardType.Maestro)]
     [TestCase("5018-71000090123456", ExpectedResult = CardType.Maestro)]
     [TestCase("5018-710000901234567", ExpectedResult = CardType.Maestro)]
-    public CardType ShouldIdentifyAsMaestro(string cardNumber) => Cardidy.Identify(cardNumber, useValidation: false, ignoreNoise: true).First();
+    public CardType ShouldIdentifyAsMaestro(string cardNumber) => Cardidy.Identify(cardNumber, useAlgorithm: false, ignoreNoise: true).First();
 
     [TestCase("676770-0000901089", ExpectedResult = CardType.MaestroUk)]
     [TestCase("676774-0000901089", ExpectedResult = CardType.MaestroUk)]
@@ -65,17 +65,17 @@ public class IdentifyTests
     [TestCase("676774-00009012345", ExpectedResult = CardType.MaestroUk)]
     [TestCase("676774-000090123456", ExpectedResult = CardType.MaestroUk)]
     [TestCase("676774-0000901234567", ExpectedResult = CardType.MaestroUk)]
-    public CardType ShouldIdentifyAsMaestroUk(string cardNumber) => Cardidy.Identify(cardNumber, useValidation: false, ignoreNoise: true).First();
+    public CardType ShouldIdentifyAsMaestroUk(string cardNumber) => Cardidy.Identify(cardNumber, useAlgorithm: false, ignoreNoise: true).First();
 
     // note that: 6759 is shared by both MaestroUK & Maestro ¯\_(ツ)_/¯
     [TestCase("6759710000901011", ExpectedResult = new[] { CardType.MaestroUk, CardType.Maestro })]
     [TestCase("6759710000901086", ExpectedResult = new[] { CardType.MaestroUk, CardType.Maestro })]
-    public IEnumerable<CardType> ShouldIdentifyAsMaestros(string cardNumber) => Cardidy.Identify(cardNumber, useValidation: true);
+    public IEnumerable<CardType> ShouldIdentifyAsMaestros(string cardNumber) => Cardidy.Identify(cardNumber, useAlgorithm: true);
 
     [TestCase("340000000000000", ExpectedResult = CardType.AmericanExpress)]
     [TestCase("341071000090108", ExpectedResult = CardType.AmericanExpress)]
     [TestCase("378967557334965", ExpectedResult = CardType.AmericanExpress)]
-    public CardType ShouldIdentifyAsAmericanExpress(string cardNumber) => Cardidy.Identify(cardNumber, useValidation: false).First();
+    public CardType ShouldIdentifyAsAmericanExpress(string cardNumber) => Cardidy.Identify(cardNumber, useAlgorithm: false).First();
 
     [TestCase("100000000000000", ExpectedResult = CardType.Uatp)]
     [TestCase("141071000090108", ExpectedResult = CardType.Uatp)]
@@ -86,7 +86,7 @@ public class IdentifyTests
     [TestCase("2202200000000000", ExpectedResult = CardType.Mir)]
     [TestCase("2203200000000000", ExpectedResult = CardType.Mir)]
     [TestCase("2204200000000000", ExpectedResult = CardType.Mir)]
-    public CardType ShouldIdentifyAsMir(string cardNumber) => Cardidy.Identify(cardNumber, useValidation: false).First();
+    public CardType ShouldIdentifyAsMir(string cardNumber) => Cardidy.Identify(cardNumber, useAlgorithm: false).First();
 
     [TestCase("6011-773331987017", ExpectedResult = CardType.Discover)]
     [TestCase("65-18958254583145", ExpectedResult = CardType.Discover)]
@@ -96,7 +96,7 @@ public class IdentifyTests
     [TestCase("644-4441230594033", ExpectedResult = CardType.Discover)]
     [TestCase("646-4441230594033", ExpectedResult = CardType.Discover)]
     [TestCase("649-4441230594033", ExpectedResult = CardType.Discover)]
-    public CardType ShouldIdentifyAsDiscover(string cardNumber) => Cardidy.Identify(cardNumber, useValidation: false, ignoreNoise: true).First();
+    public CardType ShouldIdentifyAsDiscover(string cardNumber) => Cardidy.Identify(cardNumber, useAlgorithm: false, ignoreNoise: true).First();
 
     [TestCase("5060990000000000", true, ExpectedResult = new[] { CardType.Verve })]
     [TestCase("5061230000000000", true, ExpectedResult = new[] { CardType.Verve })]
@@ -111,5 +111,5 @@ public class IdentifyTests
     [TestCase("65002700000000000", false, ExpectedResult = new[] { CardType.Discover })]
     [TestCase("650027000000000000", false, ExpectedResult = new[] { CardType.Discover })]
     [TestCase("6500270000000000000", false, ExpectedResult = new[] { CardType.Verve, CardType.Discover })]
-    public IEnumerable<CardType> ShouldIdentifyAsVerve(string cardNumber, bool useValidation) => Cardidy.Identify(cardNumber, useValidation: useValidation).ToArray();
+    public IEnumerable<CardType> ShouldIdentifyAsVerve(string cardNumber, bool useAlgorithm) => Cardidy.Identify(cardNumber, useAlgorithm: useAlgorithm).ToArray();
 }
