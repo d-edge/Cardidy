@@ -42,7 +42,7 @@ public static class Cardidy
     /// </remarks>
     /// <param name="number">The card number to identify</param>
     /// <param name="validateLength">Validate the length as part of the string identification. A false value can be useful to identify fragment of a card number. Default is true.</param>
-    /// <param name="useAlgorithm">Validate the card number as part of the string identification. A false value can be useful to identify fragment of a card number. The validation will the issuing network's validation, mostly Luhn. Default is true.</param>
+    /// <param name="useCheck">Validate the card number as part of the string identification. A false value can be useful to identify fragment of a card number. The validation will the issuing network's validation, mostly Luhn. Default is true.</param>
     /// <param name="ignoreNoise">Ignore common noise found in card number. This noise is any of `- .`. Default is false.</param>
     /// <param name="handleAnonymization">Set any non-digits to zero. It is common to use "X" and "#" to hide some digits. Default is false.</param>
     /// <example>
@@ -52,7 +52,7 @@ public static class Cardidy
     /// </code>
     /// </example>
     /// <returns>The issuing network identified.</returns>
-    public static IEnumerable<CardType> Identify(string number, bool validateLength = true, bool useAlgorithm = true, bool ignoreNoise = false, bool handleAnonymization = false)
+    public static IEnumerable<CardType> Identify(string number, bool validateLength = true, bool useCheck = true, bool ignoreNoise = false, bool handleAnonymization = false)
     {
         if (string.IsNullOrWhiteSpace(number))
             return Enumerable.Empty<CardType>();
@@ -69,7 +69,7 @@ public static class Cardidy
             .Where(knownCard => knownCard.Prefixes
                 .Any(prefix => prefix.Contains(firstSixDigits)
                     && (!validateLength || knownCard.Lengths.Contains(digits.Count))
-                    && (!useAlgorithm || isStrict && knownCard.Check(digits))
+                    && (!useCheck || isStrict && knownCard.Check(digits))
                 )
         ).Select(x => x.Name);
     }
