@@ -6,7 +6,7 @@ internal abstract record ALuhnCard : ACard
 
     internal ALuhnCard(CardType name, IEnumerable<int> prefixes, IEnumerable<int> lengths) : this(name, prefixes.Select(x => new PaddedRange(x)), lengths) { }
 
-    internal ALuhnCard(CardType name, int prefix, IEnumerable<int> lengths) : this(name, new[] { new PaddedRange(prefix)}, lengths) { }
+    internal ALuhnCard(CardType name, int prefix, IEnumerable<int> lengths) : this(name, new[] { new PaddedRange(prefix) }, lengths) { }
 
     public override bool Check(IEnumerable<int> digits) => CheckLuhn(digits);
 
@@ -20,7 +20,9 @@ internal abstract record ALuhnCard : ACard
     /// <returns>true/false depending on valid checkdigit</returns>
     private static bool CheckLuhn(IEnumerable<int> digits) => digits
         .Reverse()
-        .Sumi((thisNum, i) => i % 2 == 0
+        .Select((thisNum, i) =>
+            i % 2 == 0
             ? thisNum
-            : ((thisNum *= 2) > 9 ? thisNum - 9 : thisNum)) % 10 == 0;
+            : ((thisNum *= 2) > 9 ? thisNum - 9 : thisNum))
+        .Sum() % 10 == 0;
 }
