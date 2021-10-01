@@ -36,7 +36,7 @@ Next create a .net application and use Dedge.Cardidy:
 ```csharp
 static void Main(string[] args)
 {
-    var isVisa = Dedge.Cardidy.Indentify("4127540509730813") == Dedge.CardType.Visa;
+    var isVisa = Dedge.Cardidy.Indentify("4127540509730813").Single() == Dedge.CardType.Visa;
     Console.WriteLine(isVisa); // true
 }
 ```
@@ -48,7 +48,7 @@ open System
 
 [<EntryPoint>]
 let main _ =
-    let isVisa = Dedge.Cardidy.Indentify "4127540509730813" = Dedge.CardType.Visa
+    let isVisa = Dedge.Cardidy.Indentify "4127540509730813" |> List.head = Dedge.CardType.Visa
     printfn "%b" isVisa
     0
 ```
