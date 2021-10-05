@@ -29,6 +29,8 @@ public static class Cardidy
         new Visa(),
     };
 
+    private const int identificationNumberLength = 8;
+
     /// <summary>
     /// Pass card number and it will return issuing network if found
     /// </summary>
@@ -55,19 +57,23 @@ public static class Cardidy
     public static IEnumerable<CardType> Identify(string number, bool validateLength = true, bool useCheck = true, bool ignoreNoise = false, bool handleAnonymization = false)
     {
         if (string.IsNullOrWhiteSpace(number))
+        {
             return Enumerable.Empty<CardType>();
+        }
 
         var numbers = (ignoreNoise ? CleanNoise(number) : number).ToList();
         var isShady = !StartsWithDigit(numbers) || (!handleAnonymization && HasNotANumber(numbers));
         if (isShady)
+        {
             return Enumerable.Empty<CardType>();
+        }
 
         var digits = numbers.Select(c => int.TryParse(c.ToString(), out var i) ? i : 0).ToList();
-        var firstSixDigits = digits.Take(6).ToNumber().PadRight(6, 0);
+        var identificationNumber = digits.Take(identificationNumberLength).ToNumber().PadRight(identificationNumberLength, 0);
         var isStrict = validateLength && !ignoreNoise && !handleAnonymization;
         return knownCards
             .Where(knownCard => knownCard.Prefixes
-                .Any(prefix => prefix.Contains(firstSixDigits)
+                .Any(prefix => prefix.Contains(identificationNumber)
                     && (!validateLength || knownCard.Lengths.Contains(digits.Count))
                     && (!useCheck || isStrict && knownCard.Check(digits))
                 )
