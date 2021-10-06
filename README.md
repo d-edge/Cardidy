@@ -1,8 +1,18 @@
-![Cardidy Logo ](https://raw.githubusercontent.com/d-edge/cardidy/main/cardidy.png)
+<br />
 
-# Cardidy
+<p align="center">
+    <img src="https://raw.githubusercontent.com/d-edge/cardidy/main/cardidy.png" alt="cardidy logo" height="140">
+</p>
 
-A .net library to identify credit card number and cvv.
+<p align="center">
+    <!--<a href="https://www.nuget.org/packages/Dedge.Cardidy/" title="nuget"><img src="https://img.shields.io/nuget/vpre/Dedge.Cardidy" alt="version" /></a>
+    <a href="https://www.nuget.org/stats/packages/Dedge.Cardidy?groupby=Version" title="stats"><img src="https://img.shields.io/nuget/dt/Dedge.Cardidy" alt="download" /></a> -->
+    <a href="https://raw.githubusercontent.com/d-edge/cardidy/main/LICENSE" title="license"><img src="https://img.shields.io/github/license/d-edge/Cardidy" alt="license" /></a>
+</p>
+
+<br />
+
+Cardidy is a .net library to identify credit card number and cvv.
 
 ## Features
 
