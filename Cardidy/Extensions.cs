@@ -1,4 +1,8 @@
-﻿namespace Dedge;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Dedge;
 
 internal static class Extensions
 {
@@ -17,7 +21,10 @@ internal static class Extensions
         var missingLength = totalWidth - source.Measure();
         var paddedNumber = source * (int)Math.Pow(10, missingLength);
         if (missingLength == 0)
+        {
             return paddedNumber;
+        }
+
         var top = Enumerable.Repeat(paddingValue, missingLength).ToNumber();
         return paddedNumber + top;
     }

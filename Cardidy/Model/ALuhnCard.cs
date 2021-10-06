@@ -1,4 +1,7 @@
-﻿namespace Dedge.Model;
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace Dedge.Model;
 
 internal abstract record ALuhnCard : ACard
 {

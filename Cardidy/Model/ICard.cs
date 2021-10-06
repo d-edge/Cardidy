@@ -1,4 +1,6 @@
-﻿namespace Dedge.Model;
+﻿using System.Collections.Generic;
+
+namespace Dedge.Model;
 
 internal interface ICard
 {

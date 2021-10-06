@@ -24,7 +24,7 @@
 		<PackageReleaseNotes>https://raw.githubusercontent.com/d-edge/cardidy/main/RELEASE_NOTES.md</PackageReleaseNotes>
 		<PackageProjectUrl>https://github.com/d-edge/cardidy</PackageProjectUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageIcon>cardizer-64x64.png</PackageIcon>
+		<PackageIcon>cardidy-64x64.png</PackageIcon>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<RepositoryType>git</RepositoryType>
 		<RepositoryUrl>https://github.com/d-edge/cardidy</RepositoryUrl>
@@ -41,11 +41,6 @@
 			<Pack>true</Pack>
 			<PackagePath>$(PackageIconUrl)</PackagePath>
 		</None>
-	</ItemGroup>
-
-	<ItemGroup>
-		<Compile Remove="CardidyWithoutRegex.cs" />
-		<Compile Remove="CardidyWithRegex.cs" />
 	</ItemGroup>
 
 	<ItemGroup>

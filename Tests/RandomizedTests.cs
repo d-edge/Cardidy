@@ -1,5 +1,6 @@
 using Dedge;
 using NUnit.Framework;
+using System.Linq;
 
 namespace Tests;
 public class RandomizedTests
