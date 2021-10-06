@@ -37,8 +37,6 @@ jobs:
         with:
           dotnet-version: '6.0'
           include-prerelease: True
-      - name: Version
-        run: dotnet --version
       - name: Restore
         run: dotnet restore
       - name: Build
@@ -53,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: nupkg
-          path: ./$ARTIFACT_PATH/*.nupkg
+          path: ./${{ env.PROJECT_NAME }}/bin/Release/*.nupkg
   prerelease:
     needs: build
     if: github.ref == 'refs/heads/main'
