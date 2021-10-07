@@ -44,11 +44,8 @@ Alternatively you can also use the .NET CLI to add the packages:
 Next create a .net application and use Dedge.Cardidy:
 
 ```csharp
-static void Main(string[] args)
-{
-    var isVisa = Dedge.Cardidy.Indentify("4127540509730813").Single() == Dedge.CardType.Visa;
-    Console.WriteLine(isVisa); // true
-}
+var card = Dedge.Cardidy.Identify("4127540509730813").Single();
+Console.WriteLine(card); // print Visa
 ```
 
 or in F#:
@@ -58,7 +55,7 @@ open System
 
 [<EntryPoint>]
 let main _ =
-    let isVisa = Dedge.Cardidy.Indentify "4127540509730813" |> List.head = Dedge.CardType.Visa
+    let isVisa = Dedge.Cardidy.Identify "4127540509730813" |> List.head = Dedge.CardType.Visa
     printfn "%b" isVisa
     0
 ```

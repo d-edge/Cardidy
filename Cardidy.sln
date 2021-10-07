@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardidy", "src\Dedge.Cardid
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "src\Tests\Tests.csproj", "{855909CC-D532-43F5-8457-969C38F578E4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B14BC6AA-2080-4BB8-90A7-C83DDB6F2659}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App", "src\App\App.csproj", "{D0574C1A-B65D-4320-9952-5920D8893508}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,11 +25,18 @@ Global
 		{855909CC-D532-43F5-8457-969C38F578E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{855909CC-D532-43F5-8457-969C38F578E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{855909CC-D532-43F5-8457-969C38F578E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0574C1A-B65D-4320-9952-5920D8893508}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0574C1A-B65D-4320-9952-5920D8893508}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0574C1A-B65D-4320-9952-5920D8893508}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0574C1A-B65D-4320-9952-5920D8893508}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {20452166-4C02-47C0-B067-57D68D0A6FAE}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D0574C1A-B65D-4320-9952-5920D8893508} = {B14BC6AA-2080-4BB8-90A7-C83DDB6F2659}
 	EndGlobalSection
 EndGlobal
