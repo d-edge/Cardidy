@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cardidy\Cardidy.csproj" />
+    <ProjectReference Include="..\Dedge.Cardidy\Dedge.Cardidy.csproj" />
   </ItemGroup>
 
 </Project>
