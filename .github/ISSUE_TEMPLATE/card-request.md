@@ -20,6 +20,6 @@ I would like to be able to generate randomize valid XXX card.
 
 [source](https://en.wikipedia.org/wiki/Payment_card_number#Issuer_identification_number_%28IIN%29)
 
-If you want to solve this issue, check this [how-to guide]( https://github.com/d-edge/Cardidy/blob/main/.github/CONTRIBUTING.md#add-a-new-card).
+If you want to solve this issue, check this [how-to guide]( https://github.com/d-edge/Cardidy/blob/main/CONTRIBUTING.md#add-a-new-card).
 
 Cheers,
