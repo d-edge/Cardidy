@@ -29,6 +29,8 @@ public static class Cardidy
 
         new VisaElectron(),
         new Visa(),
+
+        new BankCard(),
     };
 
     private const int identificationNumberLength = 8;

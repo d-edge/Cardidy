@@ -64,3 +64,8 @@ internal record Jcb : ALuhnCard
 {
     public Jcb() : base(CardType.Jcb, new[] { new PaddedRange(3528, 3589) }, From16To19) { }
 }
+
+internal record BankCard : ALuhnCard
+{
+    public BankCard() : base(CardType.BankCard, new[] { new PaddedRange(5610), new PaddedRange(560221, 560225) }, Sixteen) { }
+}
