@@ -18,6 +18,22 @@ Cardidy follows the [Conventional commits specification](https://www.conventiona
 
 All C# code should follow the official [C# Style rules](https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/).
 
+## Contributing
+
+Help and feedback is always welcome and pull requests get accepted. 
+
+Here is the contribution flow ([more information on dataschool.io](https://www.dataschool.io/how-to-contribute-on-github/)):
+
+* Open or answer an issue to discuss the changes
+*  Fork the project after the change has been formally approved
+* Create a [feature branch](https://www.martinfowler.com/bliki/FeatureBranch.html)
+* Follow the code convention by examining existing code (mostly Microsoft's guidelines)
+* Edit the code with the changes
+* Add/modify unit tests as required
+* Submit your PR against the main branch
+
+PRs can only be approved and merged when all checks succeed (builds on Windows, MacOs and Linux)
+
 ## Add a new card
 
 In a library like Cardidy, one of the main way to contribute is by adding a new credit card. Below is a step-by-step guide:
