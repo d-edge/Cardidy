@@ -90,15 +90,18 @@ public class IdentifyTests
     [TestCase("2204200000000000", ExpectedResult = CardType.Mir)]
     public CardType ShouldIdentifyAsMir(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false).First();
 
-    [TestCase("6011-773331987017", ExpectedResult = CardType.Discover)]
-    [TestCase("65-18958254583145", ExpectedResult = CardType.Discover)]
-    [TestCase("622126-1230594033", ExpectedResult = CardType.Discover)]
-    [TestCase("622225-1230594033", ExpectedResult = CardType.Discover)]
-    [TestCase("622925-1230594033", ExpectedResult = CardType.Discover)]
-    [TestCase("644-4441230594033", ExpectedResult = CardType.Discover)]
-    [TestCase("646-4441230594033", ExpectedResult = CardType.Discover)]
-    [TestCase("649-4441230594033", ExpectedResult = CardType.Discover)]
-    public CardType ShouldIdentifyAsDiscover(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
+    [TestCase("6011-773331987017", ExpectedResult = new[] { CardType.Discover })]
+    [TestCase("65-18958254583145", ExpectedResult = new[] { CardType.Discover })]
+    [TestCase("622126-1230594033", ExpectedResult = new[] { CardType.Discover, CardType.UnionPay })]
+    [TestCase("622225-1230594033", ExpectedResult = new[] { CardType.Discover, CardType.UnionPay })]
+    [TestCase("622925-1230594033", ExpectedResult = new[] { CardType.Discover, CardType.UnionPay })]
+    [TestCase("644-4441230594033", ExpectedResult = new[] { CardType.Discover })]
+    [TestCase("646-4441230594033", ExpectedResult = new[] { CardType.Discover })]
+    [TestCase("649-4441230594033", ExpectedResult = new[] { CardType.Discover })]
+    [TestCase("649-44412305940331", ExpectedResult = new[] { CardType.Discover })]
+    [TestCase("649-444123059403311", ExpectedResult = new[] { CardType.Discover })]
+    [TestCase("649-4441230594033111", ExpectedResult = new[] { CardType.Discover })]
+    public IEnumerable<CardType> ShouldIdentifyAsDiscover(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).ToArray();
 
     [TestCase("5060990000000000", true, ExpectedResult = new[] { CardType.Verve })]
     [TestCase("5061230000000000", true, ExpectedResult = new[] { CardType.Verve })]
