@@ -33,6 +33,7 @@ public static class Cardidy
         new BankCard(),
         new UkrCard(),
         new ChinaTUnion(),
+        new RuPay(),
     };
 
     private const int identificationNumberLength = 8;
