@@ -28,7 +28,7 @@ internal record Visa : ALuhnCard
 
 internal record UnionPay : ALuhnCard
 {
-    public UnionPay() : base(CardType.VisaElectron, 31, Sixteen) { }
+    public UnionPay() : base(CardType.UnionPay, 62, From16To19) { }
 }
 
 internal record Verve : ACard
