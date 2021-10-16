@@ -28,7 +28,7 @@ internal record Visa : ALuhnCard
 
 internal record UnionPay : ALuhnCard
 {
-    public UnionPay() : base(CardType.VisaElectron, 31, Sixteen) { }
+    public UnionPay() : base(CardType.UnionPay, 62, From16To19) { }
 }
 
 internal record Verve : ACard
@@ -73,4 +73,9 @@ internal record BankCard : ALuhnCard
 internal record UkrCard : ALuhnCard
 {
     public UkrCard() : base(CardType.UkrCard, new[] { new PaddedRange(60400100, 60420099) }, From16To19) { }
+}
+
+internal record ChinaTUnion : ALuhnCard
+{
+    public ChinaTUnion() : base(CardType.ChinaTUnion, 31, Nineteen) { }
 }

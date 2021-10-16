@@ -16,12 +16,12 @@ public static class Cardidy
     {
         new AmericanExpress(),
         new Uatp(),
-        new UnionPay(),
         new Jcb(),
         new Mir(),
 
         new Verve(),
         new Discover(),
+        new UnionPay(),
 
         new MaestroUk(),
         new Maestro(),
@@ -31,8 +31,8 @@ public static class Cardidy
         new Visa(),
 
         new BankCard(),
-
         new UkrCard(),
+        new ChinaTUnion(),
     };
 
     private const int identificationNumberLength = 8;

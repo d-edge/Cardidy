@@ -1,4 +1,4 @@
-﻿namespace Dedge;
+namespace Dedge;
 
 /// <summary>
 /// Current supported CardType
@@ -10,6 +10,7 @@ public enum CardType
 
     AmericanExpress,
     Uatp,
+    UnionPay,
     DinersClub,
     Jcb,
     Mir,
@@ -25,7 +26,7 @@ public enum CardType
     Visa,
 
     BankCard,
-
     UkrCard,
+    ChinaTUnion,
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

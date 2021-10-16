@@ -90,15 +90,18 @@ public class IdentifyTests
     [TestCase("2204200000000000", ExpectedResult = CardType.Mir)]
     public CardType ShouldIdentifyAsMir(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false).First();
 
-    [TestCase("6011-773331987017", ExpectedResult = CardType.Discover)]
-    [TestCase("65-18958254583145", ExpectedResult = CardType.Discover)]
-    [TestCase("622126-1230594033", ExpectedResult = CardType.Discover)]
-    [TestCase("622225-1230594033", ExpectedResult = CardType.Discover)]
-    [TestCase("622925-1230594033", ExpectedResult = CardType.Discover)]
-    [TestCase("644-4441230594033", ExpectedResult = CardType.Discover)]
-    [TestCase("646-4441230594033", ExpectedResult = CardType.Discover)]
-    [TestCase("649-4441230594033", ExpectedResult = CardType.Discover)]
-    public CardType ShouldIdentifyAsDiscover(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
+    [TestCase("6011-773331987017", ExpectedResult = new[] { CardType.Discover })]
+    [TestCase("65-18958254583145", ExpectedResult = new[] { CardType.Discover })]
+    [TestCase("622126-1230594033", ExpectedResult = new[] { CardType.Discover, CardType.UnionPay })]
+    [TestCase("622225-1230594033", ExpectedResult = new[] { CardType.Discover, CardType.UnionPay })]
+    [TestCase("622925-1230594033", ExpectedResult = new[] { CardType.Discover, CardType.UnionPay })]
+    [TestCase("644-4441230594033", ExpectedResult = new[] { CardType.Discover })]
+    [TestCase("646-4441230594033", ExpectedResult = new[] { CardType.Discover })]
+    [TestCase("649-4441230594033", ExpectedResult = new[] { CardType.Discover })]
+    [TestCase("649-44412305940331", ExpectedResult = new[] { CardType.Discover })]
+    [TestCase("649-444123059403311", ExpectedResult = new[] { CardType.Discover })]
+    [TestCase("649-4441230594033111", ExpectedResult = new[] { CardType.Discover })]
+    public IEnumerable<CardType> ShouldIdentifyAsDiscover(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).ToArray();
 
     [TestCase("5060990000000000", true, ExpectedResult = new[] { CardType.Verve })]
     [TestCase("5061230000000000", true, ExpectedResult = new[] { CardType.Verve })]
@@ -115,6 +118,12 @@ public class IdentifyTests
     [TestCase("6500270000000000000", false, ExpectedResult = new[] { CardType.Verve, CardType.Discover })]
     public IEnumerable<CardType> ShouldIdentifyAsVerve(string cardNumber, bool useCheck) => Cardidy.Identify(cardNumber, useCheck: useCheck).ToArray();
 
+    [TestCase("6210553000273614", ExpectedResult = CardType.UnionPay)]
+    [TestCase("62105530002736140", ExpectedResult = CardType.UnionPay)]
+    [TestCase("621055300027361412", ExpectedResult = CardType.UnionPay)]
+    [TestCase("6210553000273614234", ExpectedResult = CardType.UnionPay)]
+    public CardType ShouldIdentifyAsUnionPay(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
+    
     [TestCase("5610553000273614", ExpectedResult = CardType.BankCard)]
     [TestCase("5602213166347852", ExpectedResult = CardType.BankCard)]
     [TestCase("5602253004948429", ExpectedResult = CardType.BankCard)]
@@ -122,7 +131,14 @@ public class IdentifyTests
 
     [TestCase("6040010060406040", ExpectedResult = CardType.UkrCard)]
     [TestCase("6042009999000000", ExpectedResult = CardType.UkrCard)]
+    [TestCase("60420099990000001", ExpectedResult = CardType.UkrCard)]
+    [TestCase("604200999900000012", ExpectedResult = CardType.UkrCard)]
     [TestCase("6040010000000000000", ExpectedResult = CardType.UkrCard)]
     [TestCase("6042009900000000000", ExpectedResult = CardType.UkrCard)]
     public CardType ShouldIdentifyAsUkrCard(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
+
+    [TestCase("3104930400000001932", ExpectedResult = CardType.ChinaTUnion)]
+    [TestCase("3105071901000005001", ExpectedResult = CardType.ChinaTUnion)]
+    [TestCase("3104830500000000001", ExpectedResult = CardType.ChinaTUnion)]
+    public CardType ShouldIdentifyAsChinaTUnion(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
 }
