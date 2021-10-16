@@ -142,6 +142,12 @@ public class IdentifyTests
     [TestCase("3104830500000000001", ExpectedResult = CardType.ChinaTUnion)]
     public CardType ShouldIdentifyAsChinaTUnion(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
 
+    [TestCase("6364930400000001", ExpectedResult = CardType.InterPayment)]
+    [TestCase("63650719010000050", ExpectedResult = CardType.InterPayment)]
+    [TestCase("636483050000000001", ExpectedResult = CardType.InterPayment)]
+    [TestCase("6364830500000000001", ExpectedResult = CardType.InterPayment)]
+    public CardType ShouldIdentifyAsInterPayment(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
+
     // note that: 65 is shared by both RuPay and Discover; 353 and 356 are part of JCB Card
     [TestCase("6000123456789010", ExpectedResult = new[] { CardType.RuPay })]
     [TestCase("6505071901000005", ExpectedResult = new[] { CardType.Discover, CardType.RuPay })]
