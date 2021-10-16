@@ -115,6 +115,12 @@ public class IdentifyTests
     [TestCase("6500270000000000000", false, ExpectedResult = new[] { CardType.Verve, CardType.Discover })]
     public IEnumerable<CardType> ShouldIdentifyAsVerve(string cardNumber, bool useCheck) => Cardidy.Identify(cardNumber, useCheck: useCheck).ToArray();
 
+    [TestCase("6210553000273614", ExpectedResult = CardType.UnionPay)]
+    [TestCase("62105530002736140", ExpectedResult = CardType.UnionPay)]
+    [TestCase("621055300027361412", ExpectedResult = CardType.UnionPay)]
+    [TestCase("6210553000273614234", ExpectedResult = CardType.UnionPay)]
+    public CardType ShouldIdentifyAsUnionPay(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
+    
     [TestCase("5610553000273614", ExpectedResult = CardType.BankCard)]
     [TestCase("5602213166347852", ExpectedResult = CardType.BankCard)]
     [TestCase("5602253004948429", ExpectedResult = CardType.BankCard)]
