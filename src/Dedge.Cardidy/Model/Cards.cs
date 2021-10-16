@@ -69,3 +69,8 @@ internal record BankCard : ALuhnCard
 {
     public BankCard() : base(CardType.BankCard, new[] { new PaddedRange(5610), new PaddedRange(560221, 560225) }, Sixteen) { }
 }
+
+internal record UkrCard : ALuhnCard
+{
+    public UkrCard() : base(CardType.UkrCard, new[] { new PaddedRange(60400100, 60420099) }, From16To19) { }
+}
