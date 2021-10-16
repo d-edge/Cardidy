@@ -119,4 +119,9 @@ public class IdentifyTests
     [TestCase("5602213166347852", ExpectedResult = CardType.BankCard)]
     [TestCase("5602253004948429", ExpectedResult = CardType.BankCard)]
     public CardType ShouldIdentifyAsBankCard(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
+
+    [TestCase("3104930400000001932", ExpectedResult = CardType.ChinaTUnion)]
+    [TestCase("3105071901000005001", ExpectedResult = CardType.ChinaTUnion)]
+    [TestCase("3104830500000000001", ExpectedResult = CardType.ChinaTUnion)]
+    public CardType ShouldIdentifyAsChinaTUnion(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
 }

@@ -7,6 +7,7 @@ internal abstract record ACard : ICard
 {
     protected static readonly int[] Fifteen = { 15 };
     protected static readonly int[] Sixteen = { 16 };
+    protected static readonly int[] Nineteen = { 19 };
     protected static readonly int[] From12To19 = { 12, 13, 14, 15, 16, 17, 18, 19 };
     protected static readonly int[] From16To19 = { 16, 17, 18, 19 };
 

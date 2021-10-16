@@ -31,6 +31,8 @@ public static class Cardidy
         new Visa(),
 
         new BankCard(),
+
+        new ChinaTUnion(),
     };
 
     private const int identificationNumberLength = 8;
