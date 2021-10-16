@@ -31,7 +31,7 @@ public static class Cardidy
         new Visa(),
 
         new BankCard(),
-
+        new UkrCard(),
         new ChinaTUnion(),
     };
 

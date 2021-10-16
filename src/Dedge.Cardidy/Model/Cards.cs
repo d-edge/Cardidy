@@ -70,7 +70,12 @@ internal record BankCard : ALuhnCard
     public BankCard() : base(CardType.BankCard, new[] { new PaddedRange(5610), new PaddedRange(560221, 560225) }, Sixteen) { }
 }
 
+internal record UkrCard : ALuhnCard
+{
+    public UkrCard() : base(CardType.UkrCard, new[] { new PaddedRange(60400100, 60420099) }, From16To19) { }
+}
+
 internal record ChinaTUnion : ALuhnCard
 {
-    public ChinaTUnion() : base(CardType.ChinaTUnion, new[] { new PaddedRange(31) }, Nineteen) { }
+    public ChinaTUnion() : base(CardType.ChinaTUnion, 31, Nineteen) { }
 }
