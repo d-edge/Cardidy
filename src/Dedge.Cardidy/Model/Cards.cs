@@ -79,3 +79,8 @@ internal record ChinaTUnion : ALuhnCard
 {
     public ChinaTUnion() : base(CardType.ChinaTUnion, 31, Nineteen) { }
 }
+
+internal record InterPayment : ALuhnCard
+{
+    public InterPayment() : base(CardType.InterPayment, 636, From16To19) { }
+}
