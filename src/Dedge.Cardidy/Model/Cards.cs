@@ -79,3 +79,8 @@ internal record ChinaTUnion : ALuhnCard
 {
     public ChinaTUnion() : base(CardType.ChinaTUnion, 31, Nineteen) { }
 }
+
+internal record RuPay : ALuhnCard
+{
+    public RuPay() : base(CardType.RuPay, new[] { 60, 65, 81, 82, 353, 356, 508 }, Sixteen) { }
+}
