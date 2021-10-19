@@ -51,8 +51,8 @@ public static class Cardidy
     /// This library aims to follow it.
     /// </remarks>
     /// <param name="number">The card number to identify</param>
-    /// <param name="validateLength">Validate the length as part of the string identification. A false value can be useful to identify fragment of a card number. Default is true.</param>
-    /// <param name="useCheck">Validate the card number as part of the string identification. A false value can be useful to identify fragment of a card number. The validation will the issuing network's validation, mostly Luhn. Default is true.</param>
+    /// <param name="validateLength">Validate the length as part of the string identification. A false value can be useful to identify the fragment of a card number. Default is true.</param>
+    /// <param name="useCheck">Validate the card number as part of the string identification. A false value can be useful to identify the fragment of a card number. The validation will be the issuing network's validation, mostly Luhn. Default is true.</param>
     /// <param name="ignoreNoise">Ignore common noise found in card number. This noise is any of `- .`. Default is false.</param>
     /// <param name="handleAnonymization">Set any non-digits to zero. It is common to use "X" and "#" to hide some digits. Default is false.</param>
     /// <example>
@@ -95,20 +95,20 @@ public static class Cardidy
     private static bool StartsWithDigit(IEnumerable<char> source) => source is not null && char.IsDigit(source.FirstOrDefault());
 
     /// <summary>
-    /// Pass card cvv and it will return its likely valitidy.
+    /// Pass card cvv and it will return its likely validity.
     /// </summary>
     /// <remarks>
-    /// This function checks if the cvv contains only digits and if its length matchs the given issuing network. 
+    /// This function checks if the cvv contains only digits and if its length matches the given issuing network. 
     /// </remarks>
     /// <param name="cvv">The cvv to validate</param>
-    /// <param name="cardType">The idenfied issuing network</param>
+    /// <param name="cardType">The identified issuing network</param>
     /// <example>
     /// <code>
     /// var cvv = "123";
     /// var visaCvvIsValid = Cardidy.IsCvvValid(CardType.Visa, cvv);
     /// </code>
     /// </example>
-    /// <returns>True if it is seems alright.</returns>
+    /// <returns>True if it seems alright.</returns>
     public static bool IsCvvValid(string cvv, CardType cardType)
         => cardType != CardType.Unknown && (cvv?.All(char.IsDigit) ?? false)
         && (cardType == CardType.AmericanExpress ? cvv.Length == 4 : cvv.Length == 3);
