@@ -35,9 +35,10 @@ public static class Cardidy
         new ChinaTUnion(),
         new InterPayment(),
         new RuPay(),
-
+        new InstaPayment(),
+        
         new LankaPay(),
-        new Humo(),
+        new Humo()
     };
 
     private const int identificationNumberLength = 8;

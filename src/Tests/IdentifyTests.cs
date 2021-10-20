@@ -158,6 +158,15 @@ public class IdentifyTests
     [TestCase("5084830500000000", ExpectedResult = new[] { CardType.RuPay })]
     public IEnumerable<CardType> ShouldIdentifyAsRuPay(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true);
 
+    [TestCase("6378041128616666", ExpectedResult = CardType.InstaPayment)]
+    [TestCase("6370871259156324", ExpectedResult = CardType.InstaPayment)]
+    [TestCase("6379373029422806", ExpectedResult = CardType.InstaPayment)]
+    [TestCase("6384395716103251", ExpectedResult = CardType.InstaPayment)]
+    [TestCase("6381720515879954", ExpectedResult = CardType.InstaPayment)]
+    [TestCase("6398746976455613", ExpectedResult = CardType.InstaPayment)]
+    [TestCase("6384960368309025--", ExpectedResult = CardType.InstaPayment)]
+    public CardType ShouldIdentifyAsInstaPayment(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: true, ignoreNoise: true).First();
+
     [TestCase("9860123456789876", ExpectedResult = CardType.Humo)]
     [TestCase("9860010102205720", ExpectedResult = CardType.Humo)]
     public CardType ShouldIdentifyAsHumo(string cardNumber) => Cardidy.Identify(cardNumber).First();
