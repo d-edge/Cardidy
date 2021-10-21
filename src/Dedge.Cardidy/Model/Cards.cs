@@ -3,7 +3,7 @@
 // Based on https://en.wikipedia.org/wiki/Payment_card_number
 internal record AmericanExpress : ALuhnCard
 {
-    public AmericanExpress() : base(CardType.AmericanExpress,  new[] { 34, 37 }, Fifteen) { }
+    public AmericanExpress() : base(CardType.AmericanExpress, new[] { 34, 37 }, Fifteen) { }
 }
 
 internal record Uatp : ACard
@@ -88,4 +88,9 @@ internal record InterPayment : ALuhnCard
 internal record RuPay : ALuhnCard
 {
     public RuPay() : base(CardType.RuPay, new[] { 60, 65, 81, 82, 353, 356, 508 }, Sixteen) { }
+}
+
+internal record Humo : ACard
+{
+    public Visa() : base(CardType.Humo, 9860, Sixteen) { }
 }
