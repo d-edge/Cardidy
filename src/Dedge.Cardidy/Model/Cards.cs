@@ -92,5 +92,5 @@ internal record RuPay : ALuhnCard
 
 internal record Humo : ACard
 {
-    public Visa() : base(CardType.Humo, 9860, Sixteen) { }
+    public Humo() : base(CardType.Humo, 9860, Sixteen) { }
 }
