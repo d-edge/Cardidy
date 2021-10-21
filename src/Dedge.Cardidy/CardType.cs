@@ -30,5 +30,7 @@ public enum CardType
     ChinaTUnion,
     InterPayment,
     RuPay,
+
+    Humo
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }
