@@ -1,0 +1,1 @@
+dotnet run -p App.csproj -c Release
