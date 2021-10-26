@@ -9,7 +9,7 @@
 		<NeutralLanguage>en-GB</NeutralLanguage>
 
 		<!-- Build settings -->
-		<TargetFramework>netstandard2.1</TargetFramework>
+		<TargetFramework>netstandard2.0</TargetFramework>
 		<LangVersion>10.0</LangVersion>
 		<DebugType>portable</DebugType>
 		<OutputType>Library</OutputType>
