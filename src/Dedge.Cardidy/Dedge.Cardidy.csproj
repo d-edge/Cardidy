@@ -9,8 +9,8 @@
 		<NeutralLanguage>en-GB</NeutralLanguage>
 
 		<!-- Build settings -->
-		<TargetFramework>net6.0</TargetFramework>
-		<LangVersion>10.0</LangVersion>
+		<TargetFrameworks>net5.0;net6.0</TargetFrameworks>
+		<LangVersion>preview</LangVersion>
 		<DebugType>portable</DebugType>
 		<OutputType>Library</OutputType>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
