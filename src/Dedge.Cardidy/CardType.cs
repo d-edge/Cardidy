@@ -1,4 +1,4 @@
-namespace Dedge;
+﻿namespace Dedge;
 
 /// <summary>
 /// Current supported CardType
@@ -30,6 +30,7 @@ public enum CardType
     ChinaTUnion,
     InterPayment,
     RuPay,
+    InstaPayment,
 
     Troy,
     LankaPay,
