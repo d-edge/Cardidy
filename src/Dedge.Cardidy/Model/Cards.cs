@@ -90,6 +90,11 @@ internal record RuPay : ALuhnCard
     public RuPay() : base(CardType.RuPay, new[] { 60, 65, 81, 82, 353, 356, 508 }, Sixteen) { }
 }
 
+internal record InstaPayment : ALuhnCard
+{
+    public InstaPayment() : base(CardType.InstaPayment, new [] { new PaddedRange(637, 639) }, Sixteen) { }
+}
+
 internal record LankaPay : ACard
 {
     public LankaPay() : base(CardType.LankaPay, 357111, Sixteen) { }
