@@ -36,6 +36,7 @@ public static class Cardidy
         new InterPayment(),
         new RuPay(),
 
+        new LankaPay(),
         new Humo(),
     };
 
@@ -80,7 +81,7 @@ public static class Cardidy
 
         var digits = numbers.Select(c => int.TryParse(c.ToString(), out var i) ? i : 0).ToList();
         var identificationNumber = digits.Take(identificationNumberLength).ToNumber().PadRight(identificationNumberLength, 0);
-        var isStrict = validateLength && !ignoreNoise && !handleAnonymization;
+        var isStrict = validateLength && !handleAnonymization;
         return knownCards
             .Where(knownCard => knownCard.Prefixes
                 .Any(prefix => prefix.Contains(identificationNumber)
