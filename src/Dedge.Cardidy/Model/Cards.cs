@@ -92,7 +92,12 @@ internal record RuPay : ALuhnCard
 
 internal record InstaPayment : ALuhnCard
 {
-    public InstaPayment() : base(CardType.InstaPayment, new [] { new PaddedRange(637, 639) }, Sixteen) { }
+    public InstaPayment() : base(CardType.InstaPayment, new[] { new PaddedRange(637, 639) }, Sixteen) { }
+}
+
+internal record Laser : ALuhnCard
+{
+    public Laser() : base(CardType.Laser, new[] { 6304, 6706, 6771, 6709 }, From16To19) { }
 }
 
 internal record Troy : ALuhnCard
