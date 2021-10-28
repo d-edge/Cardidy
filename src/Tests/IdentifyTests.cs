@@ -158,6 +158,10 @@ public class IdentifyTests
     [TestCase("5084830500000000", ExpectedResult = new[] { CardType.RuPay })]
     public IEnumerable<CardType> ShouldIdentifyAsRuPay(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true);
 
+    //[TestCase("9792123456789876", ExpectedResult = CardType.Troy)]
+    //[TestCase("6560010102205720", ExpectedResult = CardType.Troy)]
+    //public CardType ShouldIdentifyAsTroy(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
+
     [TestCase("9860123456789876", ExpectedResult = CardType.Humo)]
     [TestCase("9860010102205720", ExpectedResult = CardType.Humo)]
     public CardType ShouldIdentifyAsHumo(string cardNumber) => Cardidy.Identify(cardNumber).First();
