@@ -36,7 +36,7 @@ public static class Cardidy
         new InterPayment(),
         new RuPay(),
 
-        //new Troy(),
+        new Troy(),
         new LankaPay(),
         new Humo(),
     };
