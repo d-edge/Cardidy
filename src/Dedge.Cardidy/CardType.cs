@@ -32,6 +32,7 @@ public enum CardType
     RuPay,
     InstaPayment,
 
+    Troy,
     LankaPay,
     Humo
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
