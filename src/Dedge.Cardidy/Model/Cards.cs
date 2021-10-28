@@ -95,6 +95,11 @@ internal record RuPay : ALuhnCard
 //    public Troy() : base(CardType.Troy, new[] { 65, 9792 }, Sixteen) { }
 //}
 
+internal record LankaPay : ACard
+{
+    public LankaPay() : base(CardType.LankaPay, 357111, Sixteen) { }
+}
+
 internal record Humo : ACard
 {
     public Humo() : base(CardType.Humo, 9860, Sixteen) { }

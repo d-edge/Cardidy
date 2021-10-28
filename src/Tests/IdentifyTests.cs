@@ -165,4 +165,8 @@ public class IdentifyTests
     [TestCase("9860123456789876", ExpectedResult = CardType.Humo)]
     [TestCase("9860010102205720", ExpectedResult = CardType.Humo)]
     public CardType ShouldIdentifyAsHumo(string cardNumber) => Cardidy.Identify(cardNumber).First();
+
+    [TestCase("3571110500000000", ExpectedResult = CardType.LankaPay)]
+    [TestCase("3571110102205720", ExpectedResult = CardType.LankaPay)]
+    public CardType ShouldIdentifyAsLankaPay(string cardNumber) => Cardidy.Identify(cardNumber).First();
 }
