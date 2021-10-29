@@ -78,8 +78,7 @@ public static class Cardidy
 
         List<char> chars = GetCharsFromCardString(number, ignoreNoise);
 
-        var isShady = CheckCardShadyness(chars, handleAnonymization);
-        if (isShady)
+        if (IsCardShady(chars, handleAnonymization))
         {
             return Enumerable.Empty<CardType>();
         }
@@ -96,7 +95,7 @@ public static class Cardidy
         ).Select(x => x.Name);
     }
 
-    private static bool CheckCardShadyness(List<char> chars, bool handleAnonymization)
+    private static bool IsCardShady(List<char> chars, bool handleAnonymization)
         => !StartsWithDigit(chars) || (!handleAnonymization && HasNotANumber(chars));
 
     private static bool StartsWithDigit(IEnumerable<char> source)
