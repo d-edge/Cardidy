@@ -41,7 +41,8 @@ public static class Cardidy
 
         new Troy(),
         new LankaPay(),
-        new Humo()
+        new Humo(),
+        new UzCard()
     };
 
     private const int identificationNumberLength = 8;
