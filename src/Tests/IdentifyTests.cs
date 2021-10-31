@@ -184,4 +184,8 @@ public class IdentifyTests
     [TestCase("3571110500000000", ExpectedResult = CardType.LankaPay)]
     [TestCase("3571110102205720", ExpectedResult = CardType.LankaPay)]
     public CardType ShouldIdentifyAsLankaPay(string cardNumber) => Cardidy.Identify(cardNumber).First();
+    
+    [TestCase("8600000000500700", ExpectedResult = CardType.UzCard)]
+    [TestCase("8600002200510732", ExpectedResult = CardType.UzCard)]
+    public CardType ShouldIdentifyAsUzCard(string cardNumber) => Cardidy.Identify(cardNumber).First();
 }

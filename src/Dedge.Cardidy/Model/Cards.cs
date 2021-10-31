@@ -114,3 +114,8 @@ internal record Humo : ACard
 {
     public Humo() : base(CardType.Humo, 9860, Sixteen) { }
 }
+
+internal record UzCard : ACard
+{
+    public UzCard() : base(CardType.UzCard, 8600, Sixteen) { }
+}
