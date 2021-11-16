@@ -12,12 +12,7 @@ internal abstract record ACard : ICard
     protected static readonly int[] From16To19 = { 16, 17, 18, 19 };
 
     internal ACard(CardType name, IEnumerable<PaddedRange> prefixes, IEnumerable<int>
-        lengths)
-    {
-        Prefixes = prefixes;
-        Lengths = lengths;
-        Name = name;
-    }
+        lengths) => (Prefixes, Lengths, Name) = (prefixes, lengths, name);
 
     internal ACard(CardType name, IEnumerable<int> prefixes, IEnumerable<int>
         lengths) : this(name, prefixes.Select(x => new PaddedRange(x)), lengths)
