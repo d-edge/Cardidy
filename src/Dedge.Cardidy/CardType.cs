@@ -30,9 +30,17 @@ public enum CardType
     ChinaTUnion,
     InterPayment,
     RuPay,
+    InstaPayment,
+    Laser,
 
-    Humo,
+
     DinersClubInternational,
     DinersClubUsAndCanada,
+
+    Troy,
+    LankaPay,
+    Humo,
+    UzCard,
+    Dankort
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

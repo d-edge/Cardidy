@@ -10,5 +10,5 @@ internal interface ICard
 
     internal IEnumerable<PaddedRange> Prefixes { get; }
 
-    internal virtual bool Check(IEnumerable<int> digits) => true;
+    internal bool Check(IEnumerable<int> digits);
 }

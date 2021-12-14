@@ -1,4 +1,4 @@
-﻿using Dedge.Model;
+using Dedge.Model;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -35,10 +35,17 @@ public static class Cardidy
         new ChinaTUnion(),
         new InterPayment(),
         new RuPay(),
+        new InstaPayment(),
+        
+        new Laser(),
 
+        new Troy(),
+        new LankaPay(),
         new Humo(),
         new DinersClubInternational(),
         new DinersClubUsAndCanada()
+        new Dankort(),
+        new UzCard()
     };
 
     private const int identificationNumberLength = 8;
@@ -73,14 +80,14 @@ public static class Cardidy
             return Enumerable.Empty<CardType>();
         }
 
-        var numbers = (ignoreNoise ? CleanNoise(number) : number).ToList();
-        var isShady = !StartsWithDigit(numbers) || (!handleAnonymization && HasNotANumber(numbers));
-        if (isShady)
+        List<char> chars = GetCharsFromCardString(number, ignoreNoise);
+
+        if (IsCardShady(chars, handleAnonymization))
         {
             return Enumerable.Empty<CardType>();
         }
 
-        var digits = numbers.Select(c => int.TryParse(c.ToString(), out var i) ? i : 0).ToList();
+        var digits = chars.Select(c => int.TryParse(c.ToString(), out var i) ? i : 0).ToList();
         var identificationNumber = digits.Take(identificationNumberLength).ToNumber().PadRight(identificationNumberLength, 0);
         var isStrict = validateLength && !handleAnonymization;
         return knownCards
@@ -92,11 +99,20 @@ public static class Cardidy
         ).Select(x => x.Name);
     }
 
-    private static bool HasNotANumber(IEnumerable<char> numbers) => numbers.Any(x => !char.IsDigit(x));
+    private static bool IsCardShady(List<char> chars, bool handleAnonymization)
+        => !StartsWithDigit(chars) || (!handleAnonymization && HasNotANumber(chars));
 
-    private static IEnumerable<char> CleanNoise(string source) => source.Where(c => !"- .".Contains(c));
+    private static bool StartsWithDigit(IEnumerable<char> source)
+        => source is not null && char.IsDigit(source.FirstOrDefault());
 
-    private static bool StartsWithDigit(IEnumerable<char> source) => source is not null && char.IsDigit(source.FirstOrDefault());
+    private static bool HasNotANumber(IEnumerable<char> numbers)
+        => numbers.Any(x => !char.IsDigit(x));
+
+    private static List<char> GetCharsFromCardString(string number, bool ignoreNoise) 
+        => (ignoreNoise ? CleanNoise(number) : number).ToList();
+
+    private static IEnumerable<char> CleanNoise(string source) 
+        => source.Where(c => !"- .".Contains(c));
 
     /// <summary>
     /// Pass card cvv and it will return its likely validity.

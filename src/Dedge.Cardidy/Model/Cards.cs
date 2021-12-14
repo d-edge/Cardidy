@@ -90,6 +90,26 @@ internal record RuPay : ALuhnCard
     public RuPay() : base(CardType.RuPay, new[] { 60, 65, 81, 82, 353, 356, 508 }, Sixteen) { }
 }
 
+internal record InstaPayment : ALuhnCard
+{
+    public InstaPayment() : base(CardType.InstaPayment, new[] { new PaddedRange(637, 639) }, Sixteen) { }
+}
+
+internal record Laser : ALuhnCard
+{
+    public Laser() : base(CardType.Laser, new[] { 6304, 6706, 6771, 6709 }, From16To19) { }
+}
+
+internal record Troy : ALuhnCard
+{
+    public Troy() : base(CardType.Troy, new[] { 65, 9792 }, Sixteen) { }
+}
+
+internal record LankaPay : ACard
+{
+    public LankaPay() : base(CardType.LankaPay, 357111, Sixteen) { }
+}
+
 internal record Humo : ACard
 {
     public Humo() : base(CardType.Humo, 9860, Sixteen) { }
@@ -103,4 +123,14 @@ internal record DinersClubInternational : ACard
 internal record DinersClubUsAndCanada : ACard
 {
     public DinersClubUsAndCanada() : base(CardType.DinersClubUsAndCanada, 54, Sixteen) { }
+}
+
+internal record Dankort : ALuhnCard
+{
+    public Dankort() : base(CardType.Dankort, new[] { 5019, 4571 }, Sixteen) { }
+}
+
+internal record UzCard : ACard
+{
+    public UzCard() : base(CardType.UzCard, 8600, Sixteen) { }
 }
