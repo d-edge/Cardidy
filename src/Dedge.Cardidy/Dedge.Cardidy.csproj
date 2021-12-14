@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<!-- General -->
@@ -9,7 +9,7 @@
 		<NeutralLanguage>en-GB</NeutralLanguage>
 
 		<!-- Build settings -->
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>netstandard2.0</TargetFramework>
 		<LangVersion>10.0</LangVersion>
 		<DebugType>portable</DebugType>
 		<OutputType>Library</OutputType>
