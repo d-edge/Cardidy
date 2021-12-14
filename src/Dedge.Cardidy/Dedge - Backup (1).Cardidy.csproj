@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<!-- General -->
+		<AssemblyName>Dedge.Cardidy</AssemblyName>
+		<Description>A .net library to identify card number and cvv</Description>
+		<Copyright>Copyright 2021 D-EDGE</Copyright>
+		<Authors>D-EDGE and contributors</Authors>
+		<NeutralLanguage>en-GB</NeutralLanguage>
+
+		<!-- Build settings -->
+		<TargetFramework>net6.0</TargetFramework>
+		<LangVersion>10.0</LangVersion>
+		<DebugType>portable</DebugType>
+		<OutputType>Library</OutputType>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<IncludeSymbols>true</IncludeSymbols>
+
+		<!-- NuGet settings -->
+		<PackageId>Dedge.Cardidy</PackageId>
+		<PackageTags>Dedge;Cardidy;Credit;Payment;Card;Number;Visa;Cvv;Identify;Validate;Detection;</PackageTags>
+		<PackageReleaseNotes>https://raw.githubusercontent.com/d-edge/cardidy/main/RELEASE_NOTES.md</PackageReleaseNotes>
+		<PackageProjectUrl>https://github.com/d-edge/cardidy</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageIcon>cardidy-64x64.png</PackageIcon>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/d-edge/cardidy</RepositoryUrl>
+
+		<!-- SourceLink settings -->
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="cardidy-64x64.png">
+			<Pack>true</Pack>
+			<PackagePath>$(PackageIconUrl)</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Include="Cardidy.cs" />
+	  <Compile Include="CardType.cs" />
+	  <Compile Include="Extensions.cs" />
+	  <Compile Include="Model\ACard.cs" />
+	  <Compile Include="Model\ALuhnCard.cs" />
+	  <Compile Include="Model\Cards.cs" />
+	  <Compile Include="Model\ICard.cs" />
+	  <Compile Include="Model\PaddedRange.cs" />
+	</ItemGroup>
+
+</Project>

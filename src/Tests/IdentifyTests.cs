@@ -161,4 +161,11 @@ public class IdentifyTests
     [TestCase("9860123456789876", ExpectedResult = CardType.Humo)]
     [TestCase("9860010102205720", ExpectedResult = CardType.Humo)]
     public CardType ShouldIdentifyAsHumo(string cardNumber) => Cardidy.Identify(cardNumber).First();
+
+
+    [TestCase("5019036997011995", ExpectedResult = CardType.Dankort)]
+    [TestCase("5019118545073184 ", ExpectedResult = CardType.Dankort)]
+    [TestCase("636483050000000001", ExpectedResult = CardType.Dankort)]
+    [TestCase("6364830500000000001", ExpectedResult = CardType.Dankort)]
+    public CardType ShouldIdentifyAsDankort(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
 }
