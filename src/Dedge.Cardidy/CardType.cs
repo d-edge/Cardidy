@@ -1,4 +1,4 @@
-﻿namespace Dedge;
+namespace Dedge;
 
 /// <summary>
 /// Current supported CardType
@@ -31,12 +31,12 @@ public enum CardType
     InterPayment,
     RuPay,
     InstaPayment,
-
     Laser,
 
     Troy,
     LankaPay,
     Humo,
-    UzCard
+    UzCard,
+    Dankort
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

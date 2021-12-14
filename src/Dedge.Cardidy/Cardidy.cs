@@ -1,4 +1,4 @@
-﻿using Dedge.Model;
+using Dedge.Model;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -42,6 +42,7 @@ public static class Cardidy
         new Troy(),
         new LankaPay(),
         new Humo(),
+        new Dankort(),
         new UzCard()
     };
 
