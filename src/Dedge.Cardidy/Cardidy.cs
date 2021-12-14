@@ -37,6 +37,8 @@ public static class Cardidy
         new RuPay(),
 
         new Humo(),
+        new DinersClubInternational(),
+        new DinersClubUsAndCanada(),
     };
 
     private const int identificationNumberLength = 8;

@@ -123,7 +123,7 @@ public class IdentifyTests
     [TestCase("621055300027361412", ExpectedResult = CardType.UnionPay)]
     [TestCase("6210553000273614234", ExpectedResult = CardType.UnionPay)]
     public CardType ShouldIdentifyAsUnionPay(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
-    
+
     [TestCase("5610553000273614", ExpectedResult = CardType.BankCard)]
     [TestCase("5602213166347852", ExpectedResult = CardType.BankCard)]
     [TestCase("5602253004948429", ExpectedResult = CardType.BankCard)]
@@ -161,4 +161,14 @@ public class IdentifyTests
     [TestCase("9860123456789876", ExpectedResult = CardType.Humo)]
     [TestCase("9860010102205720", ExpectedResult = CardType.Humo)]
     public CardType ShouldIdentifyAsHumo(string cardNumber) => Cardidy.Identify(cardNumber).First();
+
+
+    [TestCase("3634948501962945908", ExpectedResult = CardType.DinersClubInternational)]
+    [TestCase("36148411266187", ExpectedResult = CardType.DinersClubInternational)]
+    public CardType ShouldIdentifyAsDinersClubInternational(string cardNumber) => Cardidy.Identify(cardNumber).First();
+
+
+    [TestCase("5437318675785251", ExpectedResult = CardType.DinersClubUsAndCanada)]
+    [TestCase("5446943316269170", ExpectedResult = CardType.DinersClubUsAndCanada)]
+    public CardType ShouldIdentifyAsDinersClubUsAndCanada(string cardNumber) => Cardidy.Identify(cardNumber).First();
 }
