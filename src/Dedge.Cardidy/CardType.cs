@@ -34,12 +34,11 @@ public enum CardType
 
     Humo,
     DinersClubInternational,
-    DinersClubUsAndCanada
+    DinersClubUsAndCanada,
     Laser,
 
     Troy,
     LankaPay,
-    Humo,
     UzCard
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

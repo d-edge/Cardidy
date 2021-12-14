@@ -123,6 +123,7 @@ internal record DinersClubInternational : ACard
 internal record DinersClubUsAndCanada : ACard
 {
     public DinersClubUsAndCanada() : base(CardType.DinersClubUsAndCanada, 54, Sixteen) { }
+}
 
 internal record UzCard : ACard
 {
