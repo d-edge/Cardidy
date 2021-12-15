@@ -36,14 +36,16 @@ public static class Cardidy
         new InterPayment(),
         new RuPay(),
         new InstaPayment(),
-        
+
         new Laser(),
 
         new Troy(),
         new LankaPay(),
         new Humo(),
         new Dankort(),
-        new UzCard()
+        new UzCard(),
+        new DinersClubInternational(),
+        new DinersClubUsAndCanada()
     };
 
     private const int identificationNumberLength = 8;
@@ -106,10 +108,10 @@ public static class Cardidy
     private static bool HasNotANumber(IEnumerable<char> numbers)
         => numbers.Any(x => !char.IsDigit(x));
 
-    private static List<char> GetCharsFromCardString(string number, bool ignoreNoise) 
+    private static List<char> GetCharsFromCardString(string number, bool ignoreNoise)
         => (ignoreNoise ? CleanNoise(number) : number).ToList();
 
-    private static IEnumerable<char> CleanNoise(string source) 
+    private static IEnumerable<char> CleanNoise(string source)
         => source.Where(c => !"- .".Contains(c));
 
     /// <summary>

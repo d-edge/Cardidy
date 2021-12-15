@@ -192,4 +192,13 @@ public class IdentifyTests
     [TestCase("8600000000500700", ExpectedResult = CardType.UzCard)]
     [TestCase("8600002200510732", ExpectedResult = CardType.UzCard)]
     public CardType ShouldIdentifyAsUzCard(string cardNumber) => Cardidy.Identify(cardNumber).First();
+
+    [TestCase("3634948501962945908", ExpectedResult = CardType.DinersClubInternational)]
+    [TestCase("36148411266187", ExpectedResult = CardType.DinersClubInternational)]
+    public CardType ShouldIdentifyAsDinersClubInternational(string cardNumber) => Cardidy.Identify(cardNumber).First();
+
+    [TestCase("5437318675785251", ExpectedResult = CardType.DinersClubUsAndCanada)]
+    [TestCase("5446943316269170", ExpectedResult = CardType.DinersClubUsAndCanada)]
+    public CardType ShouldIdentifyAsDinersClubUsAndCanada(string cardNumber) => Cardidy.Identify(cardNumber).First();
+
 }
