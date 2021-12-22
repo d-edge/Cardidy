@@ -188,7 +188,7 @@ public class IdentifyTests
     [TestCase("3571110500000000", ExpectedResult = CardType.LankaPay)]
     [TestCase("3571110102205720", ExpectedResult = CardType.LankaPay)]
     public CardType ShouldIdentifyAsLankaPay(string cardNumber) => Cardidy.Identify(cardNumber).First();
-    
+
     [TestCase("8600000000500700", ExpectedResult = CardType.UzCard)]
     [TestCase("8600002200510732", ExpectedResult = CardType.UzCard)]
     public CardType ShouldIdentifyAsUzCard(string cardNumber) => Cardidy.Identify(cardNumber).First();
@@ -201,8 +201,7 @@ public class IdentifyTests
     [TestCase("3634948501962945908", ExpectedResult = CardType.DinersClubInternational)]
     public CardType ShouldIdentifyAsDinersClubInternational(string cardNumber) => Cardidy.Identify(cardNumber).First();
 
-    [TestCase("5495996449417153", ExpectedResult = CardType.DinersClubUsAndCanada)]
-    [TestCase("5422292357387168", ExpectedResult = CardType.DinersClubUsAndCanada)]
-    public CardType ShouldIdentifyAsDinersClubUsAndCanada(string cardNumber) => Cardidy.Identify(cardNumber).First(e => e == CardType.DinersClubUsAndCanada);
-
+    [TestCase("5495996449417153", ExpectedResult = new[] { CardType.MasterCard, CardType.DinersClubUsAndCanada })]
+    [TestCase("5422292357387168", ExpectedResult = new[] { CardType.MasterCard, CardType.DinersClubUsAndCanada })]
+    public IEnumerable<CardType> ShouldIdentifyAsDinersClubUsAndCanada(string cardNumber) => Cardidy.Identify(cardNumber).ToArray();
 }
