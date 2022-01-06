@@ -125,9 +125,9 @@ internal record UzCard : ACard
     public UzCard() : base(CardType.UzCard, 8600, Sixteen) { }
 }
 
-internal record DinersClubInternational : ALuhnCard
+internal record DinersClub : ALuhnCard
 {
-    public DinersClubInternational() : base(CardType.DinersClubInternational, 36, From14To19) { }
+    public DinersClub() : base(CardType.DinersClub, 36, From14To19) { }
 }
 
 internal record DinersClubUsAndCanada : ALuhnCard

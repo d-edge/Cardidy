@@ -1,4 +1,4 @@
-namespace Dedge;
+﻿namespace Dedge;
 
 /// <summary>
 /// Current supported CardType
@@ -38,7 +38,7 @@ public enum CardType
     Humo,
     UzCard,
     Dankort,
-    DinersClubInternational,
+    DinersClub,
     DinersClubUsAndCanada
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }
