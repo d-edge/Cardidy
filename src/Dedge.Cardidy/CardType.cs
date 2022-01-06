@@ -11,7 +11,6 @@ public enum CardType
     AmericanExpress,
     Uatp,
     UnionPay,
-    DinersClub,
     Jcb,
     Mir,
 
