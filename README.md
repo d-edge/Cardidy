@@ -61,6 +61,12 @@ let main _ =
     0
 ```
 
+## Note
+
+The library mostly follows the Wikipedia's page: [Payment card number](https://en.wikipedia.org/wiki/Payment_card_number#Issuer_identification_number_(IIN)). On Cardidy, we made some modifications though:
+
+- Diners Club International is known as Diners Club
+
 ## License
 
 [MIT](https://raw.githubusercontent.com/d-edge/cardidy/main/LICENSE)

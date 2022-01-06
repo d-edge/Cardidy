@@ -44,7 +44,7 @@ public static class Cardidy
         new Humo(),
         new Dankort(),
         new UzCard(),
-        new DinersClubInternational(),
+        new DinersClub(),
         new DinersClubUsAndCanada()
     };
 
