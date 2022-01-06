@@ -37,6 +37,8 @@ public enum CardType
     LankaPay,
     Humo,
     UzCard,
-    Dankort
+    Dankort,
+    DinersClubInternational,
+    DinersClubUsAndCanada
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }
