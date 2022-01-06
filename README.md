@@ -56,7 +56,7 @@ open System
 
 [<EntryPoint>]
 let main _ =
-    let isVisa = Dedge.Cardidy.Identify "4127540509730813" |> List.head = Dedge.CardType.Visa
+    let isVisa = Dedge.Cardidy.Identify "4127540509730813" |> Seq.head = Dedge.CardType.Visa
     printfn "%b" isVisa
     0
 ```
