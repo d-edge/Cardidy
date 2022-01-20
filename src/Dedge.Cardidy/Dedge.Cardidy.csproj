@@ -34,6 +34,7 @@
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 
 		<Nullable>enable</Nullable>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -41,17 +42,18 @@
 			<Pack>true</Pack>
 			<PackagePath>$(PackageIconUrl)</PackagePath>
 		</None>
+		<None Include="README.md" Pack="true" PackagePath="\"/>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Include="Cardidy.cs" />
-	  <Compile Include="CardType.cs" />
-	  <Compile Include="Extensions.cs" />
-	  <Compile Include="Model\ACard.cs" />
-	  <Compile Include="Model\ALuhnCard.cs" />
-	  <Compile Include="Model\Cards.cs" />
-	  <Compile Include="Model\ICard.cs" />
-	  <Compile Include="Model\PaddedRange.cs" />
+		<Compile Include="Cardidy.cs" />
+		<Compile Include="CardType.cs" />
+		<Compile Include="Extensions.cs" />
+		<Compile Include="Model\ACard.cs" />
+		<Compile Include="Model\ALuhnCard.cs" />
+		<Compile Include="Model\Cards.cs" />
+		<Compile Include="Model\ICard.cs" />
+		<Compile Include="Model\PaddedRange.cs" />
 	</ItemGroup>
 
 </Project>
