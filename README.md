@@ -13,7 +13,7 @@
 
 <br />
 
-Cardidy is a .net library to identify credit card number and cvv.
+Cardidy is a .net library to identify credit card number and cvv. Maintained by folks at [D-EDGE](https://www.d-edge.com/).
 
 ## Features
 
