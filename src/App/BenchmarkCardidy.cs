@@ -1,5 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
-using Dedge;
+using DEdge;
 
 namespace App
 {

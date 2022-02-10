@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Dedge.Cardidy\Dedge.Cardidy.csproj" />
+    <ProjectReference Include="..\DEdge.Cardidy\DEdge.Cardidy.csproj" />
   </ItemGroup>
 
 </Project>

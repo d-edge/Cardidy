@@ -42,7 +42,7 @@ In a library like Cardidy, one of the main way to contribute is by adding a new 
 - Clone the project and checkout the `main` branch
 - From `main` create a new branch named `feat/addXxx`
 - Create a card for Xxx
-  - Open `src/Dedge.Cardidy/Model/Cards.cs`
+  - Open `src/DEdge.Cardidy/Model/Cards.cs`
   - Add a new record for you card
 
 ```csharp
@@ -82,7 +82,7 @@ internal record Verve : ACard
 
 ```
 
-- Then, open `src/Dedge.Cardidy/Cardidy.cs`
+- Then, open `src/DEdge.Cardidy/Cardidy.cs`
 - And add the new card to the array `knownCards`
 
 - Test your code

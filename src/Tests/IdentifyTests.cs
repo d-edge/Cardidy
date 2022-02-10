@@ -1,4 +1,4 @@
-﻿using Dedge;
+﻿using DEdge;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;

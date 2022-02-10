@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Dedge.Model;
+namespace DEdge.Model;
 
 internal abstract record ACard : ICard
 {

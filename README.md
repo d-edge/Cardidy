@@ -6,8 +6,8 @@
 
 <p align="center">
     <a href="https://github.com/d-edge/Cardidy/actions" title="actions"><img src="https://github.com/d-edge/cardidy/actions/workflows/build.yml/badge.svg?branch=main" alt="actions build" /></a>
-    <a href="https://www.nuget.org/packages/Dedge.Cardidy/" title="nuget"><img src="https://img.shields.io/nuget/vpre/Dedge.Cardidy" alt="version" /></a>
-    <!--<a href="https://www.nuget.org/stats/packages/Dedge.Cardidy?groupby=Version" title="stats"><img src="https://img.shields.io/nuget/dt/Dedge.Cardidy" alt="download" /></a>-->
+    <a href="https://www.nuget.org/packages/DEdge.Cardidy/" title="nuget"><img src="https://img.shields.io/nuget/vpre/DEdge.Cardidy" alt="version" /></a>
+    <!--<a href="https://www.nuget.org/stats/packages/DEdge.Cardidy?groupby=Version" title="stats"><img src="https://img.shields.io/nuget/dt/DEdge.Cardidy" alt="download" /></a>-->
     <a href="https://raw.githubusercontent.com/d-edge/cardidy/main/LICENSE" title="license"><img src="https://img.shields.io/github/license/d-edge/Cardidy" alt="license" /></a>
 </p>
 
@@ -34,18 +34,18 @@ Cardidy is a .net library to identify credit card number and cvv. Maintained by 
 
 ## Getting Started
 
-Install the [Dedge.Cardidy](https://www.nuget.org/packages/Dedge.Cardidy) NuGet package:
+Install the [DEdge.Cardidy](https://www.nuget.org/packages/DEdge.Cardidy) NuGet package:
 
-    PM> Install-Package Dedge.Cardidy
+    PM> Install-Package DEdge.Cardidy
 
 Alternatively you can also use the .NET CLI to add the packages:
 
-    dotnet add package Dedge.Cardidy
+    dotnet add package DEdge.Cardidy
 
-Next create a .net application and use Dedge.Cardidy:
+Next create a .net application and use DEdge.Cardidy:
 
 ```csharp
-var card = Dedge.Cardidy.Identify("4127540509730813").Single();
+var card = DEdge.Cardidy.Identify("4127540509730813").Single();
 Console.WriteLine(card); // print Visa
 ```
 
@@ -56,7 +56,7 @@ open System
 
 [<EntryPoint>]
 let main _ =
-    let isVisa = Dedge.Cardidy.Identify "4127540509730813" |> Seq.head = Dedge.CardType.Visa
+    let isVisa = DEdge.Cardidy.Identify "4127540509730813" |> Seq.head = DEdge.CardType.Visa
     printfn "%b" isVisa
     0
 ```

@@ -9,11 +9,11 @@
 
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
-    <PackageReference Include="Dedge.Cardidy" Version="0.1.0-beta" />
+    <PackageReference Include="DEdge.Cardidy" Version="0.1.0-beta" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Dedge.Cardidy\Dedge.Cardidy.csproj" />
+    <ProjectReference Include="..\DEdge.Cardidy\DEdge.Cardidy.csproj" />
     <ProjectReference Include="..\Tests\Tests.csproj" />
   </ItemGroup>
 
