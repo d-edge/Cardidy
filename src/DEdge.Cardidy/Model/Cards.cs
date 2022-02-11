@@ -1,4 +1,4 @@
-﻿namespace Dedge.Model;
+﻿namespace DEdge.Model;
 
 // Based on https://en.wikipedia.org/wiki/Payment_card_number
 internal record AmericanExpress : ALuhnCard

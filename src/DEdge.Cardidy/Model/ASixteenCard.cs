@@ -1,4 +1,4 @@
-﻿namespace Dedge.Model;
+﻿namespace DEdge.Model;
 
 // OOP-afficionados, is this worthwile?
 internal abstract record ASixteenCard : ACard

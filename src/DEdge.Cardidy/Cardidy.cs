@@ -1,8 +1,8 @@
-using Dedge.Model;
+using DEdge.Model;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Dedge;
+namespace DEdge;
 
 /// <summary>
 /// Validate or identify card number and cvv with Cardidy

@@ -1,4 +1,4 @@
-﻿namespace Dedge;
+﻿namespace DEdge;
 
 /// <summary>
 /// Current supported CardType

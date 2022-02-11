@@ -1,4 +1,4 @@
-﻿namespace Dedge.Model;
+﻿namespace DEdge.Model;
 
 internal record PaddedRange
 {

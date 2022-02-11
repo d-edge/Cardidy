@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dedge.Cardizer" Version="0.5.0-alpha" />
+    <PackageReference Include="DEdge.Cardizer" Version="0.10.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0" />
     <PackageReference Include="NUnit" Version="3.13.2" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Dedge.Cardidy\Dedge.Cardidy.csproj" />
+    <ProjectReference Include="..\DEdge.Cardidy\DEdge.Cardidy.csproj" />
   </ItemGroup>
 
 </Project>

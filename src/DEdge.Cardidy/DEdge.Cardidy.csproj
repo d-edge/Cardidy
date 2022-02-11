@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<!-- General -->
-		<AssemblyName>Dedge.Cardidy</AssemblyName>
+		<AssemblyName>DEdge.Cardidy</AssemblyName>
 		<Description>A .net library to identify card number and cvv</Description>
 		<Copyright>Copyright 2021 D-EDGE</Copyright>
 		<Authors>D-EDGE and contributors</Authors>
@@ -19,8 +19,8 @@
 		<IncludeSymbols>true</IncludeSymbols>
 
 		<!-- NuGet settings -->
-		<PackageId>Dedge.Cardidy</PackageId>
-		<PackageTags>Dedge;Cardidy;Credit;Payment;Card;Number;Visa;Cvv;Identify;Validate;Detection;</PackageTags>
+		<PackageId>DEdge.Cardidy</PackageId>
+		<PackageTags>DEdge;Cardidy;Credit;Payment;Card;Number;Visa;Cvv;Identify;Validate;Detection;</PackageTags>
 		<PackageReleaseNotes>https://raw.githubusercontent.com/d-edge/cardidy/main/RELEASE_NOTES.md</PackageReleaseNotes>
 		<PackageProjectUrl>https://github.com/d-edge/cardidy</PackageProjectUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
