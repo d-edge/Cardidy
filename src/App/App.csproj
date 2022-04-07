@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
-    <PackageReference Include="DEdge.Cardidy" Version="0.1.0-beta" />
+    <PackageReference Include="DEdge.Cardidy" Version="0.5.0" />
   </ItemGroup>
 
   <ItemGroup>
