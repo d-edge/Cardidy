@@ -48,13 +48,16 @@ jobs:
         run: |
           if [ "$GITHUB_REF_TYPE" = "tag" ]; then
             arrTag=(${GITHUB_REF//\// })
-            VERSION="${arrTag[2]}"
-            echo Version: $VERSION
-            VERSION="${VERSION//v}"
-            echo Clean Version: $VERSION
+            version="${arrTag[2]}"
+            echo Version: $version
+            version="${version//v}"
+            echo Clean Version: $version
           else
-            VERSION=$GITHUB_RUN_ID
-            echo Non-release version: $VERSION
+            git fetch --prune --unshallow --tags --quiet
+            latestTag=$(git describe --tags --abbrev=0 2>/dev/null || echo 0.0.1)
+            runId=$GITHUB_RUN_ID
+            version="${latestTag//v}-build.${runId}"
+            echo Non-release version: $version
           fi
           dotnet pack -v normal -c Release --no-restore --include-symbols --include-source -p:PackageVersion=$VERSION src/$PROJECT_NAME/$PROJECT_NAME.*proj
       - name: Upload Artifact
