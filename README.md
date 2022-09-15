@@ -32,7 +32,7 @@ Cardidy is a .net library to identify credit card number and cvv. Maintained by 
 * Support for MasterCard credit card
 * Support for more...
 
-## Getting Started
+## Getting Started as library
 
 Install the [DEdge.Cardidy](https://www.nuget.org/packages/DEdge.Cardidy) NuGet package:
 
@@ -60,6 +60,15 @@ let main _ =
     printfn "%b" isVisa
     0
 ```
+
+## Getting Started working on Cardidy
+
+- `git clone git@github.com:d-edge/Cardidy.git`
+- `cd Cardidy`
+- `dotnet test`
+
+Let's go :smile:
+
 
 ## Note
 
