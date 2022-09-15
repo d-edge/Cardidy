@@ -52,7 +52,7 @@ internal record Xxx : ALuhnCard
 }
 ```
 
-* Use `ALuhnCard` for a card check with Luhn or ACard` otherwise.
+* Use `ALuhnCard` for a card check with `Luhn or `ACard` otherwise.
 * Create a new `CardType` entry for the new card
 * Replace `prefixes` with an array of `PaddedRange`, an array of `int` or an `int`. 
 * Replace `lengths` with either `Sixteen`, `From12To19`, `From16To19`, or an array of lengths
