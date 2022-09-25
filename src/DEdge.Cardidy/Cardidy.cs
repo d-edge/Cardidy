@@ -45,7 +45,8 @@ public static class Cardidy
         new Dankort(),
         new UzCard(),
         new DinersClub(),
-        new DinersClubUsAndCanada()
+        new DinersClubUsAndCanada(),
+        new GPN()
     };
 
     private const int identificationNumberLength = 8;

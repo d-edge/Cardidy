@@ -70,8 +70,8 @@ public class IdentifyTests
     public CardType ShouldIdentifyAsMaestroUk(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
 
     // note that: 6759 is shared by both MaestroUK & Maestro ¯\_(ツ)_/¯
-    [TestCase("6759710000901011", ExpectedResult = new[] { CardType.MaestroUk, CardType.Maestro })]
-    [TestCase("6759710000901086", ExpectedResult = new[] { CardType.MaestroUk, CardType.Maestro })]
+    [TestCase("6759710000901011", ExpectedResult = new[] { CardType.MaestroUk, CardType.Maestro, CardType.GPN })]
+    [TestCase("6759710000901086", ExpectedResult = new[] { CardType.MaestroUk, CardType.Maestro, CardType.GPN })]
     public IEnumerable<CardType> ShouldIdentifyAsMaestros(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: true);
 
     [TestCase("340000000000000", ExpectedResult = CardType.AmericanExpress)]
@@ -90,14 +90,14 @@ public class IdentifyTests
     [TestCase("2204200000000000", ExpectedResult = CardType.Mir)]
     public CardType ShouldIdentifyAsMir(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false).First();
 
-    [TestCase("6011-773331987017", ExpectedResult = new[] { CardType.Discover, CardType.RuPay })]
-    [TestCase("65-18958254583145", ExpectedResult = new[] { CardType.Discover, CardType.RuPay, CardType.Troy })]
-    [TestCase("622126-1230594033", ExpectedResult = new[] { CardType.Discover, CardType.UnionPay })]
-    [TestCase("622225-1230594033", ExpectedResult = new[] { CardType.Discover, CardType.UnionPay })]
-    [TestCase("622925-1230594033", ExpectedResult = new[] { CardType.Discover, CardType.UnionPay })]
-    [TestCase("644-4441230594033", ExpectedResult = new[] { CardType.Discover })]
-    [TestCase("646-4441230594033", ExpectedResult = new[] { CardType.Discover })]
-    [TestCase("649-4441230594033", ExpectedResult = new[] { CardType.Discover })]
+    [TestCase("6011-773331987017", ExpectedResult = new[] { CardType.Discover, CardType.RuPay, CardType.GPN })]
+    [TestCase("65-18958254583145", ExpectedResult = new[] { CardType.Discover, CardType.RuPay, CardType.Troy, CardType.GPN })]
+    [TestCase("622126-1230594033", ExpectedResult = new[] { CardType.Discover, CardType.UnionPay, CardType.GPN })]
+    [TestCase("622225-1230594033", ExpectedResult = new[] { CardType.Discover, CardType.UnionPay, CardType.GPN })]
+    [TestCase("622925-1230594033", ExpectedResult = new[] { CardType.Discover, CardType.UnionPay, CardType.GPN })]
+    [TestCase("644-4441230594033", ExpectedResult = new[] { CardType.Discover, CardType.GPN })]
+    [TestCase("646-4441230594033", ExpectedResult = new[] { CardType.Discover, CardType.GPN })]
+    [TestCase("649-4441230594033", ExpectedResult = new[] { CardType.Discover, CardType.GPN })]
     [TestCase("649-44412305940331", ExpectedResult = new[] { CardType.Discover })]
     [TestCase("649-444123059403311", ExpectedResult = new[] { CardType.Discover })]
     [TestCase("649-4441230594033111", ExpectedResult = new[] { CardType.Discover })]
@@ -106,13 +106,13 @@ public class IdentifyTests
     [TestCase("5060990000000000", true, ExpectedResult = new[] { CardType.Verve })]
     [TestCase("5061230000000000", true, ExpectedResult = new[] { CardType.Verve })]
     [TestCase("5061980000000000", true, ExpectedResult = new[] { CardType.Verve })]
-    [TestCase("6500020000000001", true, ExpectedResult = new[] { CardType.Verve })]
-    [TestCase("6500100000000001", true, ExpectedResult = new[] { CardType.Verve })]
-    [TestCase("6500270000000000", true, ExpectedResult = new[] { CardType.Verve })]
+    [TestCase("6500020000000001", true, ExpectedResult = new[] { CardType.Verve, CardType.GPN })]
+    [TestCase("6500100000000001", true, ExpectedResult = new[] { CardType.Verve, CardType.GPN })]
+    [TestCase("6500270000000000", true, ExpectedResult = new[] { CardType.Verve, CardType.GPN })]
     [TestCase("6500270000000000000", true, ExpectedResult = new[] { CardType.Verve })]
-    [TestCase("6500020000000000", false, ExpectedResult = new[] { CardType.Verve, CardType.Discover, CardType.RuPay, CardType.Troy })]
-    [TestCase("6500100000000000", false, ExpectedResult = new[] { CardType.Verve, CardType.Discover, CardType.RuPay, CardType.Troy })]
-    [TestCase("6500270000000000", false, ExpectedResult = new[] { CardType.Verve, CardType.Discover, CardType.RuPay, CardType.Troy })]
+    [TestCase("6500020000000000", false, ExpectedResult = new[] { CardType.Verve, CardType.Discover, CardType.RuPay, CardType.Troy, CardType.GPN })]
+    [TestCase("6500100000000000", false, ExpectedResult = new[] { CardType.Verve, CardType.Discover, CardType.RuPay, CardType.Troy, CardType.GPN })]
+    [TestCase("6500270000000000", false, ExpectedResult = new[] { CardType.Verve, CardType.Discover, CardType.RuPay, CardType.Troy, CardType.GPN })]
     [TestCase("65002700000000000", false, ExpectedResult = new[] { CardType.Discover })]
     [TestCase("650027000000000000", false, ExpectedResult = new[] { CardType.Discover })]
     [TestCase("6500270000000000000", false, ExpectedResult = new[] { CardType.Verve, CardType.Discover })]
@@ -149,10 +149,10 @@ public class IdentifyTests
     public CardType ShouldIdentifyAsInterPayment(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
 
     // note that: 65 is shared by both RuPay and Discover; 353 and 356 are part of JCB Card
-    [TestCase("6000123456789010", ExpectedResult = new[] { CardType.RuPay })]
-    [TestCase("6505071901000005", ExpectedResult = new[] { CardType.Discover, CardType.RuPay, CardType.Troy })]
-    [TestCase("8104830500000000", ExpectedResult = new[] { CardType.RuPay })]
-    [TestCase("8204930400000001", ExpectedResult = new[] { CardType.RuPay })]
+    [TestCase("6000123456789010", ExpectedResult = new[] { CardType.RuPay, CardType.GPN })]
+    [TestCase("6505071901000005", ExpectedResult = new[] { CardType.Discover, CardType.RuPay, CardType.Troy, CardType.GPN })]
+    [TestCase("8104830500000000", ExpectedResult = new[] { CardType.RuPay, CardType.GPN })]
+    [TestCase("8204930400000001", ExpectedResult = new[] { CardType.RuPay, CardType.GPN })]
     [TestCase("3534930400000001", ExpectedResult = new[] { CardType.Jcb, CardType.RuPay })]
     [TestCase("3564930400000001", ExpectedResult = new[] { CardType.Jcb, CardType.RuPay })]
     [TestCase("5084830500000000", ExpectedResult = new[] { CardType.RuPay })]
@@ -167,14 +167,14 @@ public class IdentifyTests
     [TestCase("6384960368309025--", ExpectedResult = CardType.InstaPayment)]
     public CardType ShouldIdentifyAsInstaPayment(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: true, ignoreNoise: true).First();
 
-    [TestCase("6709123456789876", ExpectedResult = new[] { CardType.Laser })]
-    [TestCase("6771123456789876", ExpectedResult = new[] { CardType.Laser })]
-    [TestCase("6304000004583145", ExpectedResult = new[] { CardType.Maestro, CardType.Laser })]
-    [TestCase("6706710000901089", ExpectedResult = new[] { CardType.Laser })]
+    [TestCase("6709123456789876", ExpectedResult = new[] { CardType.Laser, CardType.GPN })]
+    [TestCase("6771123456789876", ExpectedResult = new[] { CardType.Laser, CardType.GPN })]
+    [TestCase("6304000004583145", ExpectedResult = new[] { CardType.Maestro, CardType.Laser, CardType.GPN })]
+    [TestCase("6706710000901089", ExpectedResult = new[] { CardType.Laser, CardType.GPN })]
     public IEnumerable<CardType> ShouldIdentifyAsLaser(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).ToArray();
 
-    [TestCase("9792123456789876", ExpectedResult = new[] { CardType.Troy })]
-    [TestCase("65-00000004583145", ExpectedResult = new[] { CardType.Discover, CardType.RuPay, CardType.Troy })]
+    [TestCase("9792123456789876", ExpectedResult = new[] { CardType.Troy, CardType.GPN })]
+    [TestCase("65-00000004583145", ExpectedResult = new[] { CardType.Discover, CardType.RuPay, CardType.Troy, CardType.GPN })]
     public IEnumerable<CardType> ShouldIdentifyAsTroy(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).ToArray();
 
     [TestCase("9860123456789876", ExpectedResult = CardType.Humo)]
@@ -204,4 +204,12 @@ public class IdentifyTests
     [TestCase("5495996449417153", ExpectedResult = new[] { CardType.MasterCard, CardType.DinersClubUsAndCanada })]
     [TestCase("5422292357387168", ExpectedResult = new[] { CardType.MasterCard, CardType.DinersClubUsAndCanada })]
     public IEnumerable<CardType> ShouldIdentifyAsDinersClubUsAndCanada(string cardNumber) => Cardidy.Identify(cardNumber).ToArray();
+
+    [TestCase("1586012345678987", ExpectedResult = CardType.GPN)]
+    [TestCase("2978392342342341", ExpectedResult = CardType.GPN)]
+    [TestCase("6596172354353452", ExpectedResult = CardType.GPN)]
+    [TestCase("7578934563134524", ExpectedResult = CardType.GPN)]
+    [TestCase("8590789867678979", ExpectedResult = CardType.GPN)]
+    [TestCase("9598098981453456", ExpectedResult = CardType.GPN)]
+    public CardType ShouldIdentifyAsGPN(string cardNumber) => Cardidy.Identify(cardNumber).First();
 }

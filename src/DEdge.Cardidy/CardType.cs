@@ -38,6 +38,7 @@ public enum CardType
     UzCard,
     Dankort,
     DinersClub,
-    DinersClubUsAndCanada
+    DinersClubUsAndCanada,
+    GPN
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }
