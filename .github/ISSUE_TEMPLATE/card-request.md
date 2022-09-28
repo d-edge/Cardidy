@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 <!-- Replace XXX with the new card -->
-<!--Fill the table as per the wiki link or any other valid soure-->
+<!--Fill the table as per the wiki link or any other valid source-->
 
 Hello,
 
