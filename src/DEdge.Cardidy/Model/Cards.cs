@@ -134,3 +134,8 @@ internal record DinersClubUsAndCanada : ALuhnCard
 {
     public DinersClubUsAndCanada() : base(CardType.DinersClubUsAndCanada, 54, Sixteen) { }
 }
+
+internal record GPN : ACard
+{
+    public GPN() : base(CardType.GPN, new[] { 1, 2, 6, 7, 8, 9 }, Sixteen) { }
+}
