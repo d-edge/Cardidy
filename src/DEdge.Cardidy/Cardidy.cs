@@ -46,7 +46,8 @@ public static class Cardidy
         new UzCard(),
         new DinersClub(),
         new DinersClubUsAndCanada(),
-        new GPN()
+        new GPN(),
+        new BORICA()
     };
 
     private const int identificationNumberLength = 8;

@@ -212,4 +212,7 @@ public class IdentifyTests
     [TestCase("8590789867678979", ExpectedResult = CardType.GPN)]
     [TestCase("9598098981453456", ExpectedResult = CardType.GPN)]
     public CardType ShouldIdentifyAsGPN(string cardNumber) => Cardidy.Identify(cardNumber).First();
+
+    [TestCase("2205123456784544", ExpectedResult = new[] { CardType.GPN, CardType.BORICA })]
+    public IEnumerable<CardType> ShouldIdentifyAsBORICA(string cardNumber) => Cardidy.Identify(cardNumber).ToArray();
 }
