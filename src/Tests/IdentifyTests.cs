@@ -70,8 +70,8 @@ public class IdentifyTests
     public CardType ShouldIdentifyAsMaestroUk(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
 
     // note that: 6759 is shared by both MaestroUK & Maestro ¯\_(ツ)_/¯
-    [TestCase("6759710000901011", ExpectedResult = new[] { CardType.MaestroUk, CardType.Maestro, CardType.GPN })]
-    [TestCase("6759710000901086", ExpectedResult = new[] { CardType.MaestroUk, CardType.Maestro, CardType.GPN })]
+    [TestCase("6759710000901011", ExpectedResult = new[] { CardType.MaestroUk, CardType.Maestro, CardType.Switch, CardType.GPN })]
+    [TestCase("6759710000901086", ExpectedResult = new[] { CardType.MaestroUk, CardType.Maestro, CardType.Switch, CardType.GPN })]
     public IEnumerable<CardType> ShouldIdentifyAsMaestros(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: true);
 
     [TestCase("340000000000000", ExpectedResult = CardType.AmericanExpress)]
