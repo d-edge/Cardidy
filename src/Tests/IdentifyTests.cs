@@ -173,6 +173,15 @@ public class IdentifyTests
     [TestCase("6706710000901089", ExpectedResult = new[] { CardType.Laser, CardType.GPN })]
     public IEnumerable<CardType> ShouldIdentifyAsLaser(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).ToArray();
 
+    [TestCase("4903670912340031", ExpectedResult = new[] { CardType.Visa, CardType.Switch })]
+    [TestCase("4905123456789870088", ExpectedResult = new[] { CardType.Switch })]
+    [TestCase("491100000458310133", ExpectedResult = new[] { CardType.Switch })]
+    [TestCase("4936710000900535", ExpectedResult = new[] { CardType.Visa, CardType.Switch })]
+    [TestCase("5641820000900584", ExpectedResult = new[] { CardType.Switch })]
+    [TestCase("6333100000900640", ExpectedResult = new[] { CardType.Switch, CardType.GPN })]
+    [TestCase("6759100000901601", ExpectedResult = new[] { CardType.MaestroUk, CardType.Maestro, CardType.Switch, CardType.GPN })]
+    public IEnumerable<CardType> ShouldIdentifyAsSwitch(string cardNumber) => Cardidy.Identify(cardNumber).ToArray();
+
     [TestCase("9792123456789876", ExpectedResult = new[] { CardType.Troy, CardType.GPN })]
     [TestCase("65-00000004583145", ExpectedResult = new[] { CardType.Discover, CardType.RuPay, CardType.Troy, CardType.GPN })]
     public IEnumerable<CardType> ShouldIdentifyAsTroy(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).ToArray();

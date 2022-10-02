@@ -31,6 +31,7 @@ public enum CardType
     RuPay,
     InstaPayment,
     Laser,
+    Switch,
 
     Troy,
     LankaPay,

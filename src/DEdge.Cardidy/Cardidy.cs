@@ -38,6 +38,7 @@ public static class Cardidy
         new InstaPayment(),
 
         new Laser(),
+        new Switch(),
 
         new Troy(),
         new LankaPay(),

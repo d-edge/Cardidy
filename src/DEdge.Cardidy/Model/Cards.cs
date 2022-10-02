@@ -100,6 +100,11 @@ internal record Laser : ALuhnCard
     public Laser() : base(CardType.Laser, new[] { 6304, 6706, 6771, 6709 }, From16To19) { }
 }
 
+internal record Switch : ALuhnCard
+{
+    public Switch() : base(CardType.Switch, new []{4903, 4905, 4911, 4936, 564182, 633110, 6333, 6759}, From16To19) { }
+}
+
 internal record Troy : ALuhnCard
 {
     public Troy() : base(CardType.Troy, new[] { 65, 9792 }, Sixteen) { }
