@@ -31,9 +31,11 @@ internal record UnionPay : ALuhnCard
     public UnionPay() : base(CardType.UnionPay, 62, From16To19) { }
 }
 
-internal record Verve : ACard
+internal record Verve : ALuhnCard
 {
-    public Verve() : base(CardType.Verve, new[] { new PaddedRange(506099, 506198), new PaddedRange(650002, 650027) }, new[] { 16, 19 })
+    public Verve() : base(CardType.Verve, new[] { 
+        new PaddedRange(506099, 506198), new PaddedRange(650002, 650027), new PaddedRange(507865, 507964) 
+    }, new[] { 16, 18, 19 })
     { }
 }
 
