@@ -47,6 +47,7 @@ public static class Cardidy
         new UzCard(),
         new DinersClub(),
         new DinersClubUsAndCanada(),
+        new BORICA(),
         new GPN()
     };
 

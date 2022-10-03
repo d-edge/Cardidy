@@ -146,3 +146,8 @@ internal record GPN : ACard
 {
     public GPN() : base(CardType.GPN, new[] { 1, 2, 6, 7, 8, 9 }, Sixteen) { }
 }
+
+internal record BORICA : ALuhnCard
+{
+    public BORICA() : base(CardType.BORICA, 2205, Sixteen) { }
+}
