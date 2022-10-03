@@ -34,6 +34,7 @@ public static class Cardidy
         new UkrCard(),
         new ChinaTUnion(),
         new InterPayment(),
+        new NPSPridnestrovie(), // Needs to be before RuPay
         new RuPay(),
         new InstaPayment(),
 

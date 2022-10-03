@@ -213,6 +213,13 @@ public class IdentifyTests
     [TestCase("9598098981453456", ExpectedResult = CardType.GPN)]
     public CardType ShouldIdentifyAsGPN(string cardNumber) => Cardidy.Identify(cardNumber).First();
 
+    [TestCase("6054740345670007", ExpectedResult = new[] { CardType.NPSPridnestrovie, CardType.RuPay, CardType.GPN })]
+    [TestCase("6054741342340016", ExpectedResult = new [] { CardType.NPSPridnestrovie, CardType.RuPay, CardType.GPN })]
+    [TestCase("6054742354351362", ExpectedResult = new [] { CardType.NPSPridnestrovie, CardType.RuPay, CardType.GPN })]
+    [TestCase("6054743354355825", ExpectedResult = new [] { CardType.NPSPridnestrovie, CardType.RuPay, CardType.GPN })]
+    [TestCase("6054744867670296", ExpectedResult = new [] { CardType.NPSPridnestrovie, CardType.RuPay, CardType.GPN })]
+    public CardType[] ShouldIdentifyAsNPSPridnestrovie(string cardNumber) => Cardidy.Identify(cardNumber).ToArray();
+    
     [TestCase("2205123456784544", ExpectedResult = CardType.BORICA)]
     public CardType ShouldIdentifyAsBORICA(string cardNumber) => Cardidy.Identify(cardNumber).First();
 }

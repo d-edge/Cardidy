@@ -85,6 +85,13 @@ internal record InterPayment : ALuhnCard
     public InterPayment() : base(CardType.InterPayment, 636, From16To19) { }
 }
 
+internal record NPSPridnestrovie : ALuhnCard
+{
+    public NPSPridnestrovie() : base(CardType.NPSPridnestrovie, new[] { 6054740, 6054741, 6054742, 6054743, 6054744 }, Sixteen)
+    {
+    }
+}
+
 internal record RuPay : ALuhnCard
 {
     public RuPay() : base(CardType.RuPay, new[] { 60, 65, 81, 82, 353, 356, 508 }, Sixteen) { }
