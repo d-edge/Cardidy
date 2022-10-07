@@ -59,10 +59,10 @@ internal record Xxx : ALuhnCard
 
 For example:
 
-| Issuing network  |          IIN ranges           | Active  | Length  |   Validation   |
-|:----------------:|:-----------------------------:|:-------:|:-------:|:--------------:|
-| Maestro UK       | 6759, 676770, 676774[11]      | Yes     | 12–19   | Luhn algorithm |
-| Verve            | 506099–506198, 650002–650027  | Yes     | 16, 19  | Unknown        |
+| Issuing network  | IIN ranges                                   | Active  | Length      | Validation     |
+|:----------------:|:--------------------------------------------:|:-------:|:-----------:|:--------------:|
+| Maestro UK       | 6759, 676770, 676774[11]                     | Yes     | 12–19       | Luhn algorithm |
+| Verve            | 506099–506198, 650002–650027, 507865-507964  | Yes     | 16, 18, 19  | Luhn algorithm |
 
 will be:
 
@@ -72,12 +72,12 @@ internal record MaestroUk : ALuhnCard
     public MaestroUk() : base(CardType.MaestroUk, new[] { 6759, 676770, 676774 }, From12To19) { }
 }
 
-internal record Verve : ACard
+internal record Verve : ALuhnCard
 {
-    public Verve() : base(
-      CardType.Verve,
-      new[] { new PaddedRange(506099, 506198), new PaddedRange(650002, 650027) },
-      new[] { 16, 19 }) { }
+    public Verve() : base(CardType.Verve, new[] { 
+        new PaddedRange(506099, 506198), new PaddedRange(650002, 650027), new PaddedRange(507865, 507964) 
+    }, new[] { 16, 18, 19 })
+    { }
 }
 ```
 
