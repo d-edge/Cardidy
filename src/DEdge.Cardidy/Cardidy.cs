@@ -16,6 +16,7 @@ public static class Cardidy
     {
         new AmericanExpress(),
         new Uatp(),
+        new LankaPay(),
         new Jcb(),
         new Mir(),
 
@@ -41,7 +42,6 @@ public static class Cardidy
         new Laser(),
 
         new Troy(),
-        new LankaPay(),
         new Humo(),
         new Dankort(),
         new UzCard(),

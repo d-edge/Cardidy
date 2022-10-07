@@ -183,8 +183,8 @@ public class IdentifyTests
     [TestCase("5019118545073184 ", ExpectedResult = CardType.Dankort)]
     public CardType ShouldIdentifyAsDankort(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
 
-    [TestCase("3571110500000000", ExpectedResult = CardType.LankaPay)]
-    [TestCase("3571110102205720", ExpectedResult = CardType.LankaPay)]
+    [TestCase("3571110500000005", ExpectedResult = CardType.LankaPay)]
+    [TestCase("3571110102205721", ExpectedResult = CardType.LankaPay)]
     public CardType ShouldIdentifyAsLankaPay(string cardNumber) => Cardidy.Identify(cardNumber).First();
 
     [TestCase("8600000000500700", ExpectedResult = CardType.UzCard)]
