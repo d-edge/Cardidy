@@ -222,4 +222,12 @@ public class IdentifyTests
     
     [TestCase("2205123456784544", ExpectedResult = CardType.BORICA)]
     public CardType ShouldIdentifyAsBORICA(string cardNumber) => Cardidy.Identify(cardNumber).First();
+
+    [TestCase("6334123412341236", ExpectedResult = CardType.Solo)]
+    [TestCase("633411111111111114", ExpectedResult = CardType.Solo)]
+    [TestCase("6334123412341234124", ExpectedResult = CardType.Solo)]
+    [TestCase("6767123412341232", ExpectedResult = CardType.Solo)]
+    [TestCase("676712341234123416", ExpectedResult = CardType.Solo)]
+    [TestCase("6767123412341234125", ExpectedResult = CardType.Solo)]
+    public CardType ShouldIdentifyAsSolo(string cardNumber) => Cardidy.Identify(cardNumber).First();
 }

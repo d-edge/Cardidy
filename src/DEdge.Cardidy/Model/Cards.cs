@@ -151,3 +151,8 @@ internal record BORICA : ALuhnCard
 {
     public BORICA() : base(CardType.BORICA, 2205, Sixteen) { }
 }
+
+internal record Solo : ALuhnCard
+{
+    public Solo() : base(CardType.Solo, new[] { 6334, 6767 }, new[] { 16, 18, 19 }) { }
+}
