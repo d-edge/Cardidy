@@ -1,4 +1,4 @@
-﻿namespace DEdge.Model;
+namespace DEdge.Model;
 
 // Based on https://en.wikipedia.org/wiki/Payment_card_number
 internal record AmericanExpress : ALuhnCard
@@ -107,6 +107,11 @@ internal record InstaPayment : ALuhnCard
 internal record Laser : ALuhnCard
 {
     public Laser() : base(CardType.Laser, new[] { 6304, 6706, 6771, 6709 }, From16To19) { }
+}
+
+internal record Switch : ALuhnCard
+{
+    public Switch() : base(CardType.Switch, new []{4903, 4905, 4911, 4936, 564182, 633110, 6333, 6759}, new[] { 16, 18, 19 }) { }
 }
 
 internal record Troy : ALuhnCard
