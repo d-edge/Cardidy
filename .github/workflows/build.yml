@@ -31,7 +31,7 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 7.0.100
+          dotnet-version: '7.0'
       - name: Restore
         run: dotnet restore
       - name: Build
@@ -90,7 +90,7 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 7.0.100
+          dotnet-version: '7.0'
       - name: Download Artifact
         uses: actions/download-artifact@v1
         with:
