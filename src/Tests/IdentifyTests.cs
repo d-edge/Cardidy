@@ -167,10 +167,10 @@ public class IdentifyTests
     [TestCase("6384960368309025--", ExpectedResult = CardType.InstaPayment)]
     public CardType ShouldIdentifyAsInstaPayment(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: true, ignoreNoise: true).First();
 
-    [TestCase("6709123456789876", ExpectedResult = new[] { CardType.Laser, CardType.GPN })]
+    [TestCase("6709123456789876", ExpectedResult = new[] { CardType.Maestro, CardType.Laser, CardType.GPN })]
     [TestCase("6771123456789876", ExpectedResult = new[] { CardType.Laser, CardType.GPN })]
     [TestCase("6304000004583145", ExpectedResult = new[] { CardType.Maestro, CardType.Laser, CardType.GPN })]
-    [TestCase("6706710000901089", ExpectedResult = new[] { CardType.Laser, CardType.GPN })]
+    [TestCase("6706710000901089", ExpectedResult = new[] { CardType.Maestro, CardType.Laser, CardType.GPN })]
     public IEnumerable<CardType> ShouldIdentifyAsLaser(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).ToArray();
 
     [TestCase("4903670912340031", ExpectedResult = new[] { CardType.Visa, CardType.Switch })]
