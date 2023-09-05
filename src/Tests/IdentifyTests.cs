@@ -55,6 +55,8 @@ public class IdentifyTests
     [TestCase("5018-7100009012345", ExpectedResult = CardType.Maestro)]
     [TestCase("5018-71000090123456", ExpectedResult = CardType.Maestro)]
     [TestCase("5018-710000901234567", ExpectedResult = CardType.Maestro)]
+    [TestCase("67044- 4444444449", ExpectedResult = CardType.Maestro)]
+    [TestCase("670300- 0000000000003", ExpectedResult = CardType.Maestro)]
     public CardType ShouldIdentifyAsMaestro(string cardNumber) => Cardidy.Identify(cardNumber, useCheck: false, ignoreNoise: true).First();
 
     [TestCase("676770-0000901089", ExpectedResult = CardType.MaestroUk)]
