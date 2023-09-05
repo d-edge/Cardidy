@@ -56,7 +56,7 @@ internal record Maestro : ALuhnCard
 {
     public Maestro() : base(CardType.Maestro, new[] { 5018, 5020, 5038, 5893, 6304, 6759, 6761, 6762, 6763,
     //https://www.freebinchecker.com/belgium_maestro-bin-list-brand?hl=fr
-    6703,6799,6775,6711,6708,6705,6709,6390,6792,6706
+    6703,6799,6775,6711,6708,6705,6709,6390,6792,6706,6704
     }, From12To19) { }
 }
 
